@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Screens & rolluiken op zonne-energie — Garado</title>
+<meta name="description" content="Screens en rolluiken op zonne-energie voor de doe-het-zelver. Geen bekabeling, eenvoudig zelf te plaatsen, 2 jaar garantie. Stel samen en bestel online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 120 120" width="42" height="42" aria-hidden="true">
+        <clipPath id="d"><rect x="28" y="34" width="64" height="60" rx="8"/></clipPath>
+        <rect x="16" y="22" width="88" height="84" rx="18" fill="#2B2A28"/>
+        <rect x="28" y="34" width="64" height="60" rx="8" fill="#FFFDF6"/>
+        <g clip-path="url(#d)" fill="#FBE08A"><rect x="28" y="58" width="64" height="8" rx="3"/><rect x="28" y="69" width="64" height="8" rx="3"/><rect x="28" y="80" width="64" height="8" rx="3"/><rect x="28" y="91" width="64" height="8" rx="3"/></g>
+        <polyline points="46,52 60,42 74,52" fill="none" stroke="#F4B740" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="wm">garado<small>GARAGEPOORTEN</small></span>
+    </a>
+    <nav><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#types">Garagepoorten</a></li>
+      <li><a href="screens.html">Screens &amp; rolluiken</a></li>
+      <li><a href="offerte.html" class="btn btn-outline">Offerte poort</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <span class="eyebrow">Doe-het-zelf &middot; op zonne-energie</span>
+  <h1>Screens &amp; rolluiken die je zelf plaatst</h1>
+  <p>Volledig op zonne-energie, dus geen bekabeling en geen elektricien nodig. Stel je maat samen, wij leveren aan huis, jij klikt het zelf op. Simpel.</p>
+</div>
+
+<!-- USP -->
+<section style="padding:30px 0 10px">
+  <div class="container">
+    <div class="usps">
+      <div class="usp"><div class="chk">☀️</div><div><h3>Op zonne-energie</h3><p>Ingebouwd zonnepaneel, geen bekabeling. Plaatsen zonder breekwerk of elektricien.</p></div></div>
+      <div class="usp"><div class="chk">🔧</div><div><h3>Zelf te plaatsen</h3><p>Geleverd met montagegids. Klaar in een namiddag, met gewoon gereedschap.</p></div></div>
+      <div class="usp"><div class="chk">✓</div><div><h3>2 jaar garantie</h3><p>Op motor en doek/lamellen. Kwaliteitsmateriaal, ook al plaats je het zelf.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIGURATOR -->
+<section id="config" style="padding-top:30px">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Stel samen</span>
+      <h2>Bereken je prijs</h2>
+      <p>Kies product, maat en kleur. Je ziet meteen je richtprijs.</p>
+    </div>
+
+    <div class="config">
+      <div class="config-card">
+        <div class="field" style="margin-bottom:18px">
+          <label>Product</label>
+          <div class="toggle" id="product">
+            <button type="button" data-p="screen" class="on">Screen (zonwering)</button>
+            <button type="button" data-p="rolluik">Rolluik</button>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="breedte">Breedte <span class="opt">(mm)</span></label>
+            <input type="number" id="breedte" min="600" max="4500" step="10" value="2000">
+          </div>
+          <div class="field">
+            <label for="hoogte">Hoogte <span class="opt">(mm)</span></label>
+            <input type="number" id="hoogte" min="600" max="3500" step="10" value="1800">
+          </div>
+          <div class="field full">
+            <label for="kleur">Kleur</label>
+            <select id="kleur">
+              <option value="wit">Wit (standaard)</option>
+              <option value="antraciet">Antraciet (standaard)</option>
+              <option value="ander">Andere kleur (prijs op aanvraag)</option>
+            </select>
+          </div>
+        </div>
+        <p class="config-note">Aandrijving op zonne-energie standaard inbegrepen. Maximaal 4500 × 3500 mm.</p>
+      </div>
+
+      <div class="price-card">
+        <div class="dot"></div>
+        <div class="badge">Richtprijs</div>
+        <div class="sub" id="dim-label">Screen · 2000 × 1800 mm · wit</div>
+        <div class="amount" id="price-incl">€ —</div>
+        <div class="sub" id="price-excl">excl. btw € —</div>
+
+        <div class="lines">
+          <div class="row"><span>Oppervlakte</span><span id="m2">— m²</span></div>
+          <div class="row"><span>Verkoop (excl. btw)</span><span id="excl">€ —</span></div>
+          <div class="row"><span>Btw 21%</span><span id="btw">€ —</span></div>
+        </div>
+
+        <div class="feat">
+          <span>☀️ Zonne-energie inbegrepen</span>
+          <span>✓ 2 jaar garantie</span>
+          <span>🚚 Levering aan huis</span>
+        </div>
+
+        <a href="#" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:14px" id="orderBtn">Bestellen →</a>
+        <p class="config-note">Richtprijs op basis van een voorbeeldtarief. Definitieve prijzen volgen zodra de leverancierslijst is ingeladen. Verkoopprijs = aankoopprijs + 30% marge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-band">
+      <div class="dot"></div>
+      <h2>Liever een garagepoort mét plaatsing?</h2>
+      <p>Onze poorten plaatsen we wél zelf, volledig op maat.</p>
+      <a href="offerte.html" class="btn btn-ghost btn-lg">Offerte poort aanvragen →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="copyright">© 2026 Garado · garado.be · <a href="index.html">Terug naar home</a></div>
+  </div>
+</footer>
+
+<script>
+  // ===== Richtprijs-configurator =====
+  // PLACEHOLDER-tarieven (aankoopprijs per m²) — vervang door echte leverancierslijst.
+  // Verkoop = aankoop × 1,30 (30% marge). Geen plaatsing (DIY) → btw 21%.
+  const AANKOOP_PER_M2 = { screen: 110, rolluik: 145 };  // €/m² — VOORBEELD
+  const MARGE = 1.30;
+  const BTW = 0.21;
+  const MIN_VERKOOP = 149;  // minimumprijs per stuk (voorbeeld)
+
+  let product = 'screen';
+  const $ = id => document.getElementById(id);
+  const eur = n => '€ ' + n.toLocaleString('nl-BE', {minimumFractionDigits:2, maximumFractionDigits:2});
+
+  function bereken(){
+    const b = Math.max(0, +$('breedte').value || 0);
+    const h = Math.max(0, +$('hoogte').value || 0);
+    const kleur = $('kleur').value;
+    const m2 = (b/1000) * (h/1000);
+
+    $('m2').textContent = m2.toFixed(2).replace('.', ',') + ' m²';
+    $('dim-label').textContent =
+      (product==='screen'?'Screen':'Rolluik') + ' · ' + b + ' × ' + h + ' mm · ' + kleur;
+
+    if (kleur === 'ander') {
+      $('price-incl').textContent = 'Op aanvraag';
+      $('price-excl').textContent = '';
+      $('excl').textContent = '—'; $('btw').textContent = '—';
+      return;
+    }
+    let verkoopExcl = Math.max(MIN_VERKOOP, m2 * AANKOOP_PER_M2[product] * MARGE);
+    const btw = verkoopExcl * BTW;
+    const incl = verkoopExcl + btw;
+
+    $('excl').textContent = eur(verkoopExcl);
+    $('btw').textContent = eur(btw);
+    $('price-incl').textContent = eur(incl);
+    $('price-excl').textContent = 'excl. btw ' + eur(verkoopExcl);
+  }
+
+  document.querySelectorAll('#product button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#product button').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      product = btn.dataset.p;
+      bereken();
+    });
+  });
+  ['breedte','hoogte','kleur'].forEach(id => $(id).addEventListener('input', bereken));
+  $('orderBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    alert('Bedankt! In de echte versie ga je hier naar de checkout: afrekenen met Bancontact of QR, en thuislevering. (Demo)');
+  });
+  bereken();
+</script>
+</body>
+</html>

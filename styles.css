@@ -156,6 +156,26 @@ section{padding:70px 0}
 .notice{background:var(--botergeel);border:1px solid var(--amber);border-radius:14px;padding:16px 20px;font-weight:600;font-size:15px;margin-bottom:24px;display:none}
 .notice.show{display:block}
 
+/* ===== Configurator (DIY screens & rolluiken) ===== */
+.config{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;max-width:980px;margin:0 auto;align-items:start}
+.config-card{background:#fff;border:1px solid var(--lijn);border-radius:22px;box-shadow:var(--schaduw);padding:30px}
+.config .toggle{display:flex;gap:10px;margin-bottom:6px}
+.config .toggle button{flex:1;padding:13px;border:1.5px solid var(--lijn);background:var(--creme);border-radius:12px;
+  font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;transition:.12s;color:var(--antraciet)}
+.config .toggle button.on{background:var(--zongeel);border-color:var(--amber)}
+.price-card{background:var(--antraciet);color:var(--creme);border-radius:22px;padding:30px;position:relative;overflow:hidden}
+.price-card .dot{position:absolute;width:200px;height:200px;border-radius:50%;background:rgba(251,224,138,.12);top:-70px;right:-50px}
+.price-card .badge{display:inline-block;background:var(--zongeel);color:var(--antraciet);font-weight:700;font-size:11px;
+  letter-spacing:1px;text-transform:uppercase;padding:4px 11px;border-radius:20px;margin-bottom:14px}
+.price-card .amount{font-size:42px;font-weight:700;line-height:1;color:#fff;margin:6px 0}
+.price-card .sub{color:#cfc9bf;font-size:14px}
+.price-card .lines{margin:18px 0;border-top:1px solid #44423e;padding-top:14px}
+.price-card .lines .row{display:flex;justify-content:space-between;font-size:14px;padding:4px 0;color:#e4e0d7}
+.price-card .feat{display:flex;flex-direction:column;gap:9px;margin:16px 0 4px}
+.price-card .feat span{display:flex;gap:9px;align-items:center;font-size:14px;color:#e4e0d7}
+.config-note{font-size:12.5px;color:var(--warmgrijs);margin-top:14px}
+@media(max-width:760px){ .config{grid-template-columns:1fr} }
+
 /* ===== Footer ===== */
 footer{background:var(--antraciet);color:#cfc9bf;padding:54px 0 30px;margin-top:30px}
 footer .cols{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
