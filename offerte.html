@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Offerte aanvragen — Portisol</title>
+<title>Prijs & offerte — Portisol</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -25,6 +25,7 @@
     </a>
     <nav><ul>
       <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#types">Onze poorten</a></li>
       <li><a href="offerte-voorbeeld.html">Voorbeeldofferte</a></li>
       <li><a href="mailto:info@portisol.be" class="btn btn-outline">Contact</a></li>
     </ul></nav>
@@ -32,131 +33,212 @@
 </header>
 
 <div class="page-hero">
-  <span class="eyebrow">Vrijblijvend &middot; antwoord binnen 2 werkdagen</span>
-  <h1>Vraag je offerte op maat aan</h1>
-  <p>Hoe meer je invult, hoe nauwkeuriger we je prijs kunnen inschatten. Foto's van je huidige situatie helpen enorm.</p>
+  <span class="eyebrow">Prijs &amp; offerte</span>
+  <h1>Wat heb je nodig?</h1>
+  <p>Een garagepoort op maat plaatsen we zelf, daarvoor maken we een offerte. Screens en rolluiken bereken je hier meteen zelf.</p>
 </div>
 
-<section style="padding-top:30px">
-  <div class="container form-wrap">
-    <div class="notice" id="notice">✓ Bedankt! Je aanvraag is verstuurd. We bekijken alles en contacteren je binnen 2 werkdagen voor een gratis opmeting.</div>
-    <form class="form-card" id="offerteForm" novalidate>
+<section style="padding-top:24px">
+  <div class="container">
 
-      <div class="form-grid">
-        <div class="fieldset-title">Jouw poort</div>
+    <!-- TABS -->
+    <div class="bigtabs">
+      <button type="button" id="tab-poort" class="on" onclick="toonTab('poort')">Garagepoort op maat<small>Offerte · mét plaatsing</small></button>
+      <button type="button" id="tab-screens" onclick="toonTab('screens')">Screens &amp; rolluiken<small>Direct richtprijs · zelf plaatsen</small></button>
+    </div>
 
-        <div class="field">
-          <label for="type">Type poort</label>
-          <select id="type" name="type" required>
-            <option value="" selected disabled>Maak een keuze…</option>
-            <option>Sectionaalpoort</option>
-            <option>Kanteldeur</option>
-            <option>Rolpoort</option>
-            <option>Zijwaartse poort</option>
-            <option>Weet ik nog niet / advies gewenst</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="materiaal">Materiaal</label>
-          <select id="materiaal" name="materiaal">
-            <option value="" selected disabled>Maak een keuze…</option>
-            <option>Staal (gelakt)</option>
-            <option>Aluminium</option>
-            <option>Hout / houtlook</option>
-            <option>Geen voorkeur</option>
-          </select>
-        </div>
+    <!-- ============ PANEL: POORT (offerte) ============ -->
+    <div class="tabpanel on" id="panel-poort">
+      <div class="form-wrap">
+        <div class="notice" id="notice">✓ Bedankt! Je aanvraag is verstuurd. We bekijken alles en contacteren je binnen 2 werkdagen voor een gratis opmeting.</div>
+        <form class="form-card" id="offerteForm" novalidate>
+          <div class="form-grid">
+            <div class="fieldset-title">Jouw poort</div>
 
-        <div class="field">
-          <label for="breedte">Breedte opening <span class="opt">(cm)</span></label>
-          <input type="number" id="breedte" name="breedte" min="100" max="700" placeholder="bv. 280">
-        </div>
-        <div class="field">
-          <label for="hoogte">Hoogte opening <span class="opt">(cm)</span></label>
-          <input type="number" id="hoogte" name="hoogte" min="150" max="400" placeholder="bv. 215">
-        </div>
+            <div class="field">
+              <label for="type">Type poort</label>
+              <select id="type" name="type" required>
+                <option value="" selected disabled>Maak een keuze…</option>
+                <option>Sectionaalpoort</option>
+                <option>Kanteldeur</option>
+                <option>Rolpoort</option>
+                <option>Zijwaartse poort</option>
+                <option>Weet ik nog niet / advies gewenst</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="uitzicht">Uitzicht panelen</label>
+              <select id="uitzicht" name="uitzicht">
+                <option value="" selected disabled>Maak een keuze…</option>
+                <option>Vlak (glad)</option>
+                <option>Cassette</option>
+                <option>Gelijnd</option>
+                <option>Woodgrain (houtstructuur)</option>
+                <option>Geen voorkeur</option>
+              </select>
+            </div>
 
-        <div class="field">
-          <label for="kleur">Kleur <span class="opt">(RAL of omschrijving)</span></label>
-          <input type="text" id="kleur" name="kleur" placeholder="bv. RAL 7016 antraciet">
-        </div>
-        <div class="field">
-          <label for="motor">Automaat / motor</label>
-          <select id="motor" name="motor">
-            <option value="" selected disabled>Maak een keuze…</option>
-            <option>Ja, met afstandsbediening</option>
-            <option>Ja, met smartphone-bediening</option>
-            <option>Nee, manueel</option>
-            <option>Advies gewenst</option>
-          </select>
-        </div>
+            <div class="field">
+              <label for="breedte">Breedte opening <span class="opt">(cm)</span></label>
+              <input type="number" id="breedte" name="breedte" min="100" max="700" placeholder="bv. 280">
+            </div>
+            <div class="field">
+              <label for="hoogte">Hoogte opening <span class="opt">(cm)</span></label>
+              <input type="number" id="hoogte" name="hoogte" min="150" max="400" placeholder="bv. 215">
+            </div>
 
-        <div class="field full">
-          <label>Isolatie &amp; opties <span class="opt">(meerdere mogelijk)</span></label>
-          <div style="display:flex;flex-wrap:wrap;gap:14px 24px;font-weight:600;font-size:15px">
-            <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="opt" value="isolatie"> Geïsoleerde panelen</label>
-            <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="opt" value="loopdeur"> Loopdeur in poort</label>
-            <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="opt" value="ramen"> Raampjes</label>
-            <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="opt" value="afbraak"> Oude poort afbreken/afvoeren</label>
+            <div class="field">
+              <label for="kleur">Kleur</label>
+              <select id="kleur" name="kleur">
+                <option>Wit (standaard)</option>
+                <option>Antraciet (standaard)</option>
+                <option>Andere RAL-kleur (meerprijs)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="ral">RAL-code <span class="opt">(bij andere kleur)</span></label>
+              <input type="text" id="ral" name="ral" placeholder="bv. RAL 9016">
+            </div>
+
+            <div class="field full">
+              <label>Opties <span class="opt">(meerdere mogelijk)</span></label>
+              <div style="display:flex;flex-wrap:wrap;gap:14px 24px">
+                <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="opt" value="isolatie"> Geïsoleerde panelen</label>
+                <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="opt" value="loopdeur"> Loopdeur in poort</label>
+                <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="opt" value="ramen"> Raampjes</label>
+                <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="opt" value="afbraak"> Oude poort afbreken/afvoeren</label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="hint" style="background:var(--botergeel);border-radius:10px;padding:10px 14px;color:#7a5f12">
+                ☀️ Onze poorten zijn <b>altijd gemotoriseerd</b> (afstandsbediening inbegrepen). Standaardkleuren wit en antraciet; andere RAL-kleuren mogelijk tegen meerprijs.
+              </p>
+            </div>
+
+            <div class="fieldset-title">Plaatsing</div>
+            <div class="field">
+              <label for="plaatsing">Plaatsing op</label>
+              <select id="plaatsing" name="plaatsing">
+                <option value="" selected disabled>Maak een keuze…</option>
+                <option>Op de vloer</option>
+                <option>Op een dorpel</option>
+                <option>Weet ik niet</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="periode">Gewenste periode</label>
+              <select id="periode" name="periode">
+                <option value="" selected disabled>Maak een keuze…</option>
+                <option>Zo snel mogelijk</option>
+                <option>Binnen 1 maand</option>
+                <option>Binnen 2-3 maanden</option>
+                <option>Flexibel</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label>Foto's van je huidige garage <span class="opt">(optioneel, helpt enorm)</span></label>
+              <label class="upload" for="fotos">📷 Klik om foto's toe te voegen of sleep ze hierheen<br><span class="hint" id="fileinfo">JPG of PNG, max. 5 bestanden</span></label>
+              <input type="file" id="fotos" name="fotos" accept="image/*" multiple style="display:none">
+            </div>
+
+            <div class="fieldset-title">Contactgegevens</div>
+            <div class="field">
+              <label for="naam">Naam</label>
+              <input type="text" id="naam" name="naam" required placeholder="Voor- en achternaam">
+            </div>
+            <div class="field">
+              <label for="tel">Telefoon</label>
+              <input type="tel" id="tel" name="tel" required placeholder="04xx xx xx xx">
+            </div>
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" required placeholder="jij@voorbeeld.be">
+            </div>
+            <div class="field">
+              <label for="adres">Adres van de plaatsing</label>
+              <input type="text" id="adres" name="adres" required placeholder="Straat, nr, postcode, gemeente">
+            </div>
+            <div class="field full">
+              <label for="bericht">Extra info <span class="opt">(optioneel)</span></label>
+              <textarea id="bericht" name="bericht" placeholder="Vertel ons gerust meer over je situatie of wensen…"></textarea>
+            </div>
+
+            <div class="field full" style="margin-top:6px">
+              <label style="display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:14px">
+                <input type="checkbox" required style="margin-top:4px"> Ik ga akkoord dat Portisol mijn gegevens gebruikt om deze aanvraag te behandelen.
+              </label>
+            </div>
+            <div class="field full" style="margin-top:6px">
+              <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">Offerte-aanvraag versturen →</button>
+              <p class="hint" style="text-align:center;margin-top:10px">Vrijblijvend &middot; gratis opmeting &middot; geen verplichtingen</p>
+            </div>
           </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ============ PANEL: SCREENS (configurator) ============ -->
+    <div class="tabpanel" id="panel-screens">
+      <div class="usps" style="margin-bottom:34px">
+        <div class="usp"><div class="chk">☀️</div><div><h3>Op zonne-energie</h3><p>Ingebouwd zonnepaneel, geen bekabeling. Plaatsen zonder breekwerk of elektricien.</p></div></div>
+        <div class="usp"><div class="chk">🔧</div><div><h3>Zelf te plaatsen</h3><p>Geleverd met montagegids. Klaar in een namiddag, met gewoon gereedschap.</p></div></div>
+        <div class="usp"><div class="chk">✓</div><div><h3>2 jaar garantie</h3><p>Op motor en doek/lamellen. Kwaliteitsmateriaal, ook al plaats je het zelf.</p></div></div>
+      </div>
+
+      <div class="config">
+        <div class="config-card">
+          <div class="field" style="margin-bottom:18px">
+            <label>Product</label>
+            <div class="toggle" id="sc-product">
+              <button type="button" data-p="screen" class="on">Screen (zonwering)</button>
+              <button type="button" data-p="rolluik">Rolluik</button>
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="field">
+              <label for="sc-breedte">Breedte <span class="opt">(mm)</span></label>
+              <input type="number" id="sc-breedte" min="600" max="4500" step="10" value="2000">
+            </div>
+            <div class="field">
+              <label for="sc-hoogte">Hoogte <span class="opt">(mm)</span></label>
+              <input type="number" id="sc-hoogte" min="600" max="3500" step="10" value="1800">
+            </div>
+            <div class="field full">
+              <label for="sc-kleur">Kleur</label>
+              <select id="sc-kleur">
+                <option value="wit">Wit (standaard)</option>
+                <option value="antraciet">Antraciet (standaard)</option>
+                <option value="ander">Andere kleur (prijs op aanvraag)</option>
+              </select>
+            </div>
+          </div>
+          <p class="config-note">Aandrijving op zonne-energie standaard inbegrepen. Maximaal 4500 × 3500 mm.</p>
         </div>
 
-        <div class="field full">
-          <label>Foto's van je huidige garage <span class="opt">(optioneel, helpt enorm)</span></label>
-          <label class="upload" for="fotos">📷 Klik om foto's toe te voegen of sleep ze hierheen<br><span class="hint" id="fileinfo">JPG of PNG, max. 5 bestanden</span></label>
-          <input type="file" id="fotos" name="fotos" accept="image/*" multiple style="display:none">
-        </div>
-
-        <div class="fieldset-title">Planning</div>
-        <div class="field">
-          <label for="periode">Gewenste plaatsingsperiode</label>
-          <select id="periode" name="periode">
-            <option value="" selected disabled>Maak een keuze…</option>
-            <option>Zo snel mogelijk</option>
-            <option>Binnen 1 maand</option>
-            <option>Binnen 2-3 maanden</option>
-            <option>Flexibel</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="budget">Indicatief budget <span class="opt">(optioneel)</span></label>
-          <input type="text" id="budget" name="budget" placeholder="bv. € 2.000 – € 3.000">
-        </div>
-
-        <div class="fieldset-title">Contactgegevens</div>
-        <div class="field">
-          <label for="naam">Naam</label>
-          <input type="text" id="naam" name="naam" required placeholder="Voor- en achternaam">
-        </div>
-        <div class="field">
-          <label for="tel">Telefoon</label>
-          <input type="tel" id="tel" name="tel" required placeholder="04xx xx xx xx">
-        </div>
-        <div class="field">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" required placeholder="jij@voorbeeld.be">
-        </div>
-        <div class="field">
-          <label for="adres">Adres van de plaatsing</label>
-          <input type="text" id="adres" name="adres" required placeholder="Straat, nr, postcode, gemeente">
-        </div>
-        <div class="field full">
-          <label for="bericht">Extra info <span class="opt">(optioneel)</span></label>
-          <textarea id="bericht" name="bericht" placeholder="Vertel ons gerust meer over je situatie of wensen…"></textarea>
-        </div>
-
-        <div class="field full" style="margin-top:6px">
-          <label style="display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:14px">
-            <input type="checkbox" required style="margin-top:4px"> Ik ga akkoord dat Portisol mijn gegevens gebruikt om deze aanvraag te behandelen.
-          </label>
-        </div>
-
-        <div class="field full" style="margin-top:6px">
-          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">Offerte-aanvraag versturen →</button>
-          <p class="hint" style="text-align:center;margin-top:10px">Vrijblijvend &middot; gratis opmeting &middot; geen verplichtingen</p>
+        <div class="price-card">
+          <div class="dot"></div>
+          <div class="badge">Richtprijs</div>
+          <div class="sub" id="sc-dim">Screen · 2000 × 1800 mm · wit</div>
+          <div class="amount" id="sc-incl">€ —</div>
+          <div class="sub" id="sc-exclLbl">excl. btw € —</div>
+          <div class="lines">
+            <div class="row"><span>Oppervlakte</span><span id="sc-m2">— m²</span></div>
+            <div class="row"><span>Verkoop (excl. btw)</span><span id="sc-excl">€ —</span></div>
+            <div class="row"><span>Btw 21%</span><span id="sc-btw">€ —</span></div>
+          </div>
+          <div class="feat">
+            <span>☀️ Zonne-energie inbegrepen</span>
+            <span>✓ 2 jaar garantie</span>
+            <span>🚚 Levering aan huis</span>
+          </div>
+          <a href="#" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:14px" id="sc-order">Bestellen →</a>
+          <p class="config-note">Richtprijs inclusief zonne-aandrijving en levering. De definitieve prijs zie je bij het bestellen.</p>
         </div>
       </div>
-    </form>
+    </div>
+
   </div>
 </section>
 
@@ -167,15 +249,23 @@
 </footer>
 
 <script>
-  // foto-teller
+  // ===== Tabs =====
+  function toonTab(t){
+    document.getElementById('panel-poort').classList.toggle('on', t==='poort');
+    document.getElementById('panel-screens').classList.toggle('on', t==='screens');
+    document.getElementById('tab-poort').classList.toggle('on', t==='poort');
+    document.getElementById('tab-screens').classList.toggle('on', t==='screens');
+    if (history.replaceState) history.replaceState(null,'','#'+t);
+  }
+  if (location.hash === '#screens') toonTab('screens');
+
+  // ===== Offerteformulier (poort) =====
   const fotos = document.getElementById('fotos');
   const fileinfo = document.getElementById('fileinfo');
   fotos.addEventListener('change', () => {
     const n = fotos.files.length;
     fileinfo.textContent = n ? `${n} bestand(en) geselecteerd` : 'JPG of PNG, max. 5 bestanden';
   });
-
-  // demo-submit (front-end prototype — koppelt later aan Apps Script / Workspace)
   document.getElementById('offerteForm').addEventListener('submit', (e) => {
     e.preventDefault();
     if (!e.target.checkValidity()) { e.target.reportValidity(); return; }
@@ -185,6 +275,47 @@
     fileinfo.textContent = 'JPG of PNG, max. 5 bestanden';
     notice.scrollIntoView({behavior:'smooth', block:'center'});
   });
+
+  // ===== Richtprijs-configurator (screens/rolluiken) =====
+  // INTERN: definitieve prijs = HxL-leveranciersmatrix ÷ 2 × 1,30 (matrix was incl. plaatsing;
+  //   ÷2 ≈ goederenprijs, +30% marge). Marge nog te bevestigen. Matrix nog in te laden (Excel).
+  // Tot dan: PLACEHOLDER per-m²-tarief als richtprijs. Geen plaatsing (DIY) → btw 21%.
+  const AANKOOP_PER_M2 = { screen: 110, rolluik: 145 };  // €/m² — VOORBEELD, vervangen door matrix
+  const MARGE = 1.30, BTW = 0.21, MIN_VERKOOP = 149;
+  let product = 'screen';
+  const $ = id => document.getElementById(id);
+  const eur = n => '€ ' + n.toLocaleString('nl-BE', {minimumFractionDigits:2, maximumFractionDigits:2});
+
+  function bereken(){
+    const b = Math.max(0, +$('sc-breedte').value || 0);
+    const h = Math.max(0, +$('sc-hoogte').value || 0);
+    const kleur = $('sc-kleur').value;
+    const m2 = (b/1000) * (h/1000);
+    $('sc-m2').textContent = m2.toFixed(2).replace('.', ',') + ' m²';
+    $('sc-dim').textContent = (product==='screen'?'Screen':'Rolluik') + ' · ' + b + ' × ' + h + ' mm · ' + kleur;
+    if (kleur === 'ander') {
+      $('sc-incl').textContent = 'Op aanvraag'; $('sc-exclLbl').textContent = '';
+      $('sc-excl').textContent = '—'; $('sc-btw').textContent = '—'; return;
+    }
+    let verkoopExcl = Math.max(MIN_VERKOOP, m2 * AANKOOP_PER_M2[product] * MARGE);
+    const btw = verkoopExcl * BTW, incl = verkoopExcl + btw;
+    $('sc-excl').textContent = eur(verkoopExcl);
+    $('sc-btw').textContent = eur(btw);
+    $('sc-incl').textContent = eur(incl);
+    $('sc-exclLbl').textContent = 'excl. btw ' + eur(verkoopExcl);
+  }
+  document.querySelectorAll('#sc-product button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#sc-product button').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on'); product = btn.dataset.p; bereken();
+    });
+  });
+  ['sc-breedte','sc-hoogte','sc-kleur'].forEach(id => $(id).addEventListener('input', bereken));
+  $('sc-order').addEventListener('click', (e) => {
+    e.preventDefault();
+    alert('Bedankt! In de echte versie ga je hier naar de checkout: afrekenen met Bancontact of QR, en thuislevering. (Demo)');
+  });
+  bereken();
 </script>
 </body>
 </html>
