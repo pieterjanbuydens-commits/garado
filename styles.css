@@ -31,10 +31,10 @@ header{
   backdrop-filter:saturate(180%) blur(10px);
   border-bottom:1px solid var(--lijn);
 }
-.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
-.logo{display:flex;align-items:center;gap:11px;font-weight:700;font-size:26px;letter-spacing:.5px}
-.logo small{display:block;font-size:9px;letter-spacing:4px;color:var(--warmgrijs);font-weight:500;line-height:1}
-.logo .wm{display:flex;flex-direction:column;line-height:1.05}
+.nav{display:flex;align-items:center;justify-content:space-between;height:88px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:700;font-size:32px;letter-spacing:.3px}
+.logo small{display:block;font-size:11.5px;letter-spacing:1px;color:var(--warmgrijs);font-weight:500;line-height:1;margin-top:3px}
+.logo .wm{display:flex;flex-direction:column;line-height:1.12}
 nav ul{display:flex;gap:30px;list-style:none;align-items:center;font-weight:600;font-size:15px}
 nav a:hover{color:var(--amber)}
 .menu-cta{display:flex;align-items:center;gap:18px}
