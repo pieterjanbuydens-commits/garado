@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offerte aanvragen — Garado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 120 120" width="42" height="42" aria-hidden="true">
+        <clipPath id="d"><rect x="28" y="34" width="64" height="60" rx="8"/></clipPath>
+        <rect x="16" y="22" width="88" height="84" rx="18" fill="#2B2A28"/>
+        <rect x="28" y="34" width="64" height="60" rx="8" fill="#FFFDF6"/>
+        <g clip-path="url(#d)" fill="#FBE08A"><rect x="28" y="58" width="64" height="8" rx="3"/><rect x="28" y="69" width="64" height="8" rx="3"/><rect x="28" y="80" width="64" height="8" rx="3"/><rect x="28" y="91" width="64" height="8" rx="3"/></g>
+        <polyline points="46,52 60,42 74,52" fill="none" stroke="#F4B740" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="wm">garado<small>GARAGEPOORTEN</small></span>
+    </a>
+    <nav><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="offerte-voorbeeld.html">Voorbeeldofferte</a></li>
+      <li><a href="mailto:info@garado.be" class="btn btn-outline">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <span class="eyebrow">Vrijblijvend &middot; antwoord binnen 2 werkdagen</span>
+  <h1>Vraag je offerte op maat aan</h1>
+  <p>Hoe meer je invult, hoe nauwkeuriger we je prijs kunnen inschatten. Foto's van je huidige situatie helpen enorm.</p>
+</div>
+
+<section style="padding-top:30px">
+  <div class="container form-wrap">
+    <div class="notice" id="notice">✓ Bedankt! Je aanvraag is verstuurd. We bekijken alles en contacteren je binnen 2 werkdagen voor een gratis opmeting.</div>
+    <form class="form-card" id="offerteForm" novalidate>
+
+      <div class="form-grid">
+        <div class="fieldset-title">Jouw poort</div>
+
+        <div class="field">
+          <label for="type">Type poort</label>
+          <select id="type" name="type" required>
+            <option value="" selected disabled>Maak een keuze…</option>
+            <option>Sectionaalpoort</option>
+            <option>Kanteldeur</option>
+            <option>Rolpoort</option>
+            <option>Zijwaartse poort</option>
+            <option>Weet ik nog niet / advies gewenst</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="materiaal">Materiaal</label>
+          <select id="materiaal" name="materiaal">
+            <option value="" selected disabled>Maak een keuze…</option>
+            <option>Staal (gelakt)</option>
+            <option>Aluminium</option>
+            <option>Hout / houtlook</option>
+            <option>Geen voorkeur</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="breedte">Breedte opening <span class="opt">(cm)</span></label>
+          <input type="number" id="breedte" name="breedte" min="100" max="700" placeholder="bv. 280">
+        </div>
+        <div class="field">
+          <label for="hoogte">Hoogte opening <span class="opt">(cm)</span></label>
+          <input type="number" id="hoogte" name="hoogte" min="150" max="400" placeholder="bv. 215">
+        </div>
+
+        <div class="field">
+          <label for="kleur">Kleur <span class="opt">(RAL of omschrijving)</span></label>
+          <input type="text" id="kleur" name="kleur" placeholder="bv. RAL 7016 antraciet">
+        </div>
+        <div class="field">
+          <label for="motor">Automaat / motor</label>
+          <select id="motor" name="motor">
+            <option value="" selected disabled>Maak een keuze…</option>
+            <option>Ja, met afstandsbediening</option>
+            <option>Ja, met smartphone-bediening</option>
+            <option>Nee, manueel</option>
+            <option>Advies gewenst</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label>Isolatie &amp; opties <span class="opt">(meerdere mogelijk)</span></label>
+          <div style="display:flex;flex-wrap:wrap;gap:14px 24px;font-weight:600;font-size:15px">
+            <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="opt" value="isolatie"> Geïsoleerde panelen</label>
+            <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="opt" value="loopdeur"> Loopdeur in poort</label>
+            <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="opt" value="ramen"> Raampjes</label>
+            <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="opt" value="afbraak"> Oude poort afbreken/afvoeren</label>
+          </div>
+        </div>
+
+        <div class="field full">
+          <label>Foto's van je huidige garage <span class="opt">(optioneel, helpt enorm)</span></label>
+          <label class="upload" for="fotos">📷 Klik om foto's toe te voegen of sleep ze hierheen<br><span class="hint" id="fileinfo">JPG of PNG, max. 5 bestanden</span></label>
+          <input type="file" id="fotos" name="fotos" accept="image/*" multiple style="display:none">
+        </div>
+
+        <div class="fieldset-title">Planning</div>
+        <div class="field">
+          <label for="periode">Gewenste plaatsingsperiode</label>
+          <select id="periode" name="periode">
+            <option value="" selected disabled>Maak een keuze…</option>
+            <option>Zo snel mogelijk</option>
+            <option>Binnen 1 maand</option>
+            <option>Binnen 2-3 maanden</option>
+            <option>Flexibel</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="budget">Indicatief budget <span class="opt">(optioneel)</span></label>
+          <input type="text" id="budget" name="budget" placeholder="bv. € 2.000 – € 3.000">
+        </div>
+
+        <div class="fieldset-title">Contactgegevens</div>
+        <div class="field">
+          <label for="naam">Naam</label>
+          <input type="text" id="naam" name="naam" required placeholder="Voor- en achternaam">
+        </div>
+        <div class="field">
+          <label for="tel">Telefoon</label>
+          <input type="tel" id="tel" name="tel" required placeholder="04xx xx xx xx">
+        </div>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required placeholder="jij@voorbeeld.be">
+        </div>
+        <div class="field">
+          <label for="adres">Adres van de plaatsing</label>
+          <input type="text" id="adres" name="adres" required placeholder="Straat, nr, postcode, gemeente">
+        </div>
+        <div class="field full">
+          <label for="bericht">Extra info <span class="opt">(optioneel)</span></label>
+          <textarea id="bericht" name="bericht" placeholder="Vertel ons gerust meer over je situatie of wensen…"></textarea>
+        </div>
+
+        <div class="field full" style="margin-top:6px">
+          <label style="display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:14px">
+            <input type="checkbox" required style="margin-top:4px"> Ik ga akkoord dat Garado mijn gegevens gebruikt om deze aanvraag te behandelen.
+          </label>
+        </div>
+
+        <div class="field full" style="margin-top:6px">
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">Offerte-aanvraag versturen →</button>
+          <p class="hint" style="text-align:center;margin-top:10px">Vrijblijvend &middot; gratis opmeting &middot; geen verplichtingen</p>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="copyright">© 2026 Garado · garado.be · <a href="index.html">Terug naar home</a></div>
+  </div>
+</footer>
+
+<script>
+  // foto-teller
+  const fotos = document.getElementById('fotos');
+  const fileinfo = document.getElementById('fileinfo');
+  fotos.addEventListener('change', () => {
+    const n = fotos.files.length;
+    fileinfo.textContent = n ? `${n} bestand(en) geselecteerd` : 'JPG of PNG, max. 5 bestanden';
+  });
+
+  // demo-submit (front-end prototype — koppelt later aan Apps Script / Workspace)
+  document.getElementById('offerteForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!e.target.checkValidity()) { e.target.reportValidity(); return; }
+    const notice = document.getElementById('notice');
+    notice.classList.add('show');
+    e.target.reset();
+    fileinfo.textContent = 'JPG of PNG, max. 5 bestanden';
+    notice.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+</script>
+</body>
+</html>
