@@ -110,7 +110,7 @@
         </div>
 
         <a href="#" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:14px" id="orderBtn">Bestellen →</a>
-        <p class="config-note">Richtprijs op basis van een voorbeeldtarief. Definitieve prijzen volgen zodra de leverancierslijst is ingeladen. Verkoopprijs = aankoopprijs + 30% marge.</p>
+        <p class="config-note">Richtprijs inclusief zonne-aandrijving en levering. De definitieve prijs zie je bij het bestellen.</p>
       </div>
     </div>
   </div>
@@ -135,9 +135,10 @@
 
 <script>
   // ===== Richtprijs-configurator =====
-  // PLACEHOLDER-tarieven (aankoopprijs per m²) — vervang door echte leverancierslijst.
-  // Verkoop = aankoop × 1,30 (30% marge). Geen plaatsing (DIY) → btw 21%.
-  const AANKOOP_PER_M2 = { screen: 110, rolluik: 145 };  // €/m² — VOORBEELD
+  // INTERN: definitieve prijs = HxL-leveranciersmatrix ÷ 2 × 1,30  (matrix was incl. plaatsing;
+  //   ÷2 ≈ goederenprijs, +30% marge). Marge nog te bevestigen. Matrix nog in te laden (Excel).
+  // Tot dan: PLACEHOLDER per-m²-tarief als richtprijs. Geen plaatsing (DIY) → btw 21%.
+  const AANKOOP_PER_M2 = { screen: 110, rolluik: 145 };  // €/m² — VOORBEELD, vervangen door matrix
   const MARGE = 1.30;
   const BTW = 0.21;
   const MIN_VERKOOP = 149;  // minimumprijs per stuk (voorbeeld)
