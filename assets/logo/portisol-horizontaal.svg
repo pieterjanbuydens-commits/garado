@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" width="600" height="160" role="img" aria-label="Portisol">
+  <defs><clipPath id="ph2"><rect x="28" y="34" width="64" height="60" rx="8"/></clipPath></defs>
+  <g transform="translate(8,20)">
+    <rect x="16" y="22" width="88" height="84" rx="18" fill="#2B2A28"/>
+    <rect x="28" y="34" width="64" height="60" rx="8" fill="#FFFDF6"/>
+    <g clip-path="url(#ph2)" fill="#FBE08A">
+      <rect x="28" y="60" width="64" height="8" rx="3"/><rect x="28" y="71" width="64" height="8" rx="3"/>
+      <rect x="28" y="82" width="64" height="8" rx="3"/><rect x="28" y="93" width="64" height="8" rx="3"/>
+    </g>
+    <g stroke="#F4B740" stroke-width="2.6" stroke-linecap="round">
+      <line x1="60" y1="41" x2="60" y2="37.5"/><line x1="54.3" y1="43.3" x2="52.2" y2="41.2"/>
+      <line x1="65.7" y1="43.3" x2="67.8" y2="41.2"/><line x1="51.5" y1="49" x2="48.5" y2="49"/><line x1="68.5" y1="49" x2="71.5" y2="49"/>
+    </g>
+    <circle cx="60" cy="49" r="7" fill="#F4B740"/>
+  </g>
+  <text x="150" y="92" font-family="Quicksand, sans-serif" font-weight="700" font-size="58" fill="#2B2A28" letter-spacing="0.5">portisol</text>
+  <text x="153" y="119" font-family="Quicksand, sans-serif" font-weight="500" font-size="15" fill="#9A938A" letter-spacing="3.5">POORTEN &amp; ZONWERING</text>
+</svg>

@@ -1,234 +1,434 @@
 <!DOCTYPE html>
-<html lang="nl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Portisol — Custom garagepoorten op maat</title>
-<meta name="description" content="Portisol plaatst garagepoorten volledig op maat. Vraag online je offerte aan, betaal eenvoudig met QR en kies meteen je plaatsingsdatum.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+
+<html lang="nl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portisol | Uw Partner in Maatwerk Garagepoorten &amp; Zonwering</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        zongeel: "#FBE08A",
+                        botergeel: "#FDEFB8",
+                        amber: "#F4B740",
+                        antraciet: "#2B2A28",
+                        warmgrijs: "#9A938A",
+                        creme: "#FFFDF6",
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        headline: ["Quicksand", "sans-serif"],
+                        display: ["Quicksand", "sans-serif"],
+                        body: ["Quicksand", "sans-serif"],
+                        label: ["Quicksand", "sans-serif"]
+                    },
+                    boxShadow: {
+                        'amber-glow': '0 10px 15px -3px rgba(244, 183, 64, 0.3), 0 4px 6px -2px rgba(244, 183, 64, 0.1)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Quicksand', sans-serif; background-color: #FFFDF6; color: #2B2A28; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .pill-eyebrow { display: inline-block; padding: 4px 16px; background-color: #FDEFB8; color: #2B2A28; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+        .nav-link-active { color: #F4B740; font-weight: 700; border-bottom: 2px solid #F4B740; padding-bottom: 4px; }
+    </style>
+<style>html{scroll-behavior:smooth}section[id]{scroll-margin-top:90px}</style>
+<meta name="robots" content="noindex,nofollow"/>
 </head>
-<body>
-
-<header>
-  <div class="container nav">
-    <a href="index.html" class="logo">
-      <svg viewBox="0 0 120 120" width="54" height="54" aria-hidden="true">
-        <clipPath id="d"><rect x="28" y="34" width="64" height="60" rx="8"/></clipPath>
-        <rect x="16" y="22" width="88" height="84" rx="18" fill="#2B2A28"/>
-        <rect x="28" y="34" width="64" height="60" rx="8" fill="#FFFDF6"/>
-        <g clip-path="url(#d)" fill="#FBE08A">
-          <rect x="28" y="58" width="64" height="8" rx="3"/><rect x="28" y="69" width="64" height="8" rx="3"/>
-          <rect x="28" y="80" width="64" height="8" rx="3"/><rect x="28" y="91" width="64" height="8" rx="3"/>
-        </g>
-        <g stroke="#F4B740" stroke-width="2.6" stroke-linecap="round"><line x1="60" y1="41" x2="60" y2="37.5"/><line x1="54.3" y1="43.3" x2="52.2" y2="41.2"/><line x1="65.7" y1="43.3" x2="67.8" y2="41.2"/><line x1="51.5" y1="49" x2="48.5" y2="49"/><line x1="68.5" y1="49" x2="71.5" y2="49"/></g><circle cx="60" cy="49" r="7" fill="#F4B740"/>
-      </svg>
-      <span class="wm">portisol<small>Poorten &amp; Zonwering</small></span>
-    </a>
-    <nav>
-      <ul>
-        <li><a href="#types">Onze poorten</a></li>
-        <li><a href="offerte.html#screens">Screens &amp; rolluiken</a></li>
-        <li><a href="#proces">Werkwijze</a></li>
-        <li><a href="offerte.html" class="btn btn-primary">Offerte aanvragen</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <span class="eyebrow">Volledig op maat &middot; eigen plaatsing</span>
-      <h1>Jouw garagepoort, <span class="hl">precies op maat</span> gemaakt en geplaatst.</h1>
-      <p class="lead">Op maat gemaakt en vakkundig geplaatst door één vast team. Vraag online je offerte aan, betaal eenvoudig met QR-code en plan meteen je plaatsingsdatum.</p>
-      <div class="hero-cta">
-        <a href="offerte.html" class="btn btn-primary btn-lg">Offerte aanvragen →</a>
-        <a href="#proces" class="btn btn-outline">Zo werkt het</a>
-      </div>
-      <div class="hero-note">
-        <span>✓ Jij meet, wij plaatsen</span>
-        <span>✓ Eigen monteurs</span>
-        <span>✓ 5 jaar garantie</span>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="blob b1"></div><div class="blob b2"></div>
-      <div class="hero-card">
-        <svg viewBox="0 0 400 300" width="100%" aria-label="Garagepoort op maat">
-          <rect x="0" y="0" width="400" height="300" rx="18" fill="#FFFBEF"/>
-          <!-- house -->
-          <rect x="40" y="80" width="320" height="170" rx="8" fill="#fff" stroke="#EDE9E0" stroke-width="2"/>
-          <polygon points="40,80 200,18 360,80" fill="#2B2A28"/>
-          <!-- garage door -->
-          <rect x="92" y="120" width="216" height="130" rx="6" fill="#2B2A28"/>
-          <g>
-            <rect x="104" y="132" width="192" height="22" rx="5" fill="#FBE08A"/>
-            <rect x="104" y="160" width="192" height="22" rx="5" fill="#FBE08A"/>
-            <rect x="104" y="188" width="192" height="22" rx="5" fill="#FBE08A"/>
-            <rect x="104" y="216" width="192" height="22" rx="5" fill="#FBE08A"/>
-          </g>
-          <!-- handle/sensor dots -->
-          <circle cx="200" cy="143" r="3" fill="#2B2A28" opacity=".4"/>
-          <!-- measuring marks -->
-          <line x1="92" y1="270" x2="308" y2="270" stroke="#F4B740" stroke-width="2"/>
-          <line x1="92" y1="265" x2="92" y2="275" stroke="#F4B740" stroke-width="2"/>
-          <line x1="308" y1="265" x2="308" y2="275" stroke="#F4B740" stroke-width="2"/>
-          <text x="200" y="266" text-anchor="middle" font-family="Quicksand" font-size="13" font-weight="700" fill="#8a6d18">op maat</text>
-        </svg>
-      </div>
-    </div>
-  </div>
+<body class="selection:bg-botergeel">
+<!-- Section 1: Sticky Nav -->
+<nav class="bg-white/70 dark:bg-antraciet/70 backdrop-blur-md sticky top-0 z-50 w-full shadow-sm border-b border-warmgrijs/10">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<a class="flex items-center gap-2 group" href="index.html">
+<img alt="Portisol Logo" class="h-10 w-auto" src="assets/logo/portisol-horizontaal.svg"/>
+</a>
+<div class="hidden md:flex gap-8 items-center font-headline text-body tracking-tight font-medium">
+<a class="text-amber font-bold border-b-2 border-amber pb-1" href="#types">Onze poorten</a>
+<a class="text-antraciet dark:text-creme hover:text-amber transition-colors" href="#diy">Screens &amp; rolluiken</a>
+<a class="text-antraciet dark:text-creme hover:text-amber transition-colors" href="#proces">Werkwijze</a>
+<a class="text-antraciet dark:text-creme hover:text-amber transition-colors" href="#waarom">Waarom Portisol</a>
+</div>
+<button class="bg-amber hover:bg-amber/90 text-antraciet font-bold px-6 py-2.5 rounded-full shadow-amber-glow transition-all active:scale-95" onclick="location.href='offerte.html'">
+                Offerte aanvragen
+            </button>
+</div>
+</nav>
+<!-- Section 2: Hero Section -->
+<section class="relative pt-16 pb-24 overflow-hidden px-6 lg:px-0">
+<div class="max-w-7xl mx-auto">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<!-- Hero Content -->
+<div class="relative z-10">
+<span class="pill-eyebrow mb-6">Volledig op maat · eigen plaatsing</span>
+<h1 class="text-5xl lg:text-7xl font-extrabold text-antraciet tracking-tighter leading-[1.1] mb-6">
+                        Jouw garagepoort, <span class="text-amber">precies op maat</span> gemaakt en geplaatst.
+                    </h1>
+<p class="text-lg text-warmgrijs mb-10 max-w-xl leading-relaxed">
+                        Ontvang direct een transparante offerte. Wij faciliteren alles van inmeting tot betaling via QR en planning op jouw gewenste datum. Vakmanschap zoals het hoort.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 mb-12">
+<button class="bg-amber text-antraciet font-bold px-8 py-4 rounded-xl shadow-amber-glow hover:-translate-y-1 transition-all text-lg flex items-center justify-center gap-2" onclick="location.href='offerte.html'">
+                            Offerte aanvragen
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border-2 border-antraciet text-antraciet font-bold px-8 py-4 rounded-xl hover:bg-antraciet hover:text-white transition-all text-lg flex items-center justify-center gap-2" onclick="location.href='#proces'">
+                            Zo werkt het
+                        </button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-warmgrijs/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-amber" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-bold text-antraciet">Jij meet, wij plaatsen</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-amber" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-bold text-antraciet">Eigen monteurs</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-amber" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-bold text-antraciet">5 jaar garantie</span>
+</div>
+</div>
+</div>
+<!-- Hero Visual -->
+<div class="relative group">
+<div class="absolute -inset-4 bg-zongeel/30 blur-3xl rounded-full -z-10 animate-pulse"></div>
+<div class="relative overflow-hidden rounded-3xl shadow-2xl">
+<img class="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A luxurious modern villa at sunset featuring a high-end custom garage door with integrated horizontal wood slat details and soft lighting. The architecture is minimalist with clean lines, smooth concrete, and natural stone textures. The scene is bathed in a warm, golden hour glow that highlights the premium craftsmanship of the Portisol installation. The overall mood is sophisticated, serene, and aspirational." src="assets/img/hero-garagepoort.png"/>
+<!-- Floating Glass Card -->
+<div class="absolute bottom-6 left-6 right-6 glass p-6 rounded-2xl border border-white/40 shadow-xl translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<div class="flex justify-between items-center mb-2">
+<span class="bg-amber/20 text-antraciet text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full">Op Maat</span>
+<div class="flex items-center gap-1 text-amber">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold text-antraciet">4.9/5</span>
+</div>
+</div>
+<p class="text-sm font-medium text-antraciet italic">"Fantastische afwerking en precies volgens afspraak geleverd."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<!-- TYPES -->
-<section id="types" class="bg-soft">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Onze poorten</span>
-      <h2>Elk type, elke maat</h2>
-      <p>Wat je garage ook vraagt, wij maken het passend, geïsoleerd en in de kleur van jouw keuze.</p>
-    </div>
-    <div class="cards">
-      <div class="card">
-        <div class="ico"><svg width="32" height="32" viewBox="0 0 32 32"><rect x="4" y="5" width="24" height="22" rx="2" fill="#2B2A28"/><g fill="#FBE08A"><rect x="7" y="8" width="18" height="3.5" rx="1.5"/><rect x="7" y="13.5" width="18" height="3.5" rx="1.5"/><rect x="7" y="19" width="18" height="3.5" rx="1.5"/></g></svg></div>
-        <h3>Sectionaalpoorten</h3>
-        <p>Opent verticaal, neemt geen ruimte in de oprit. De populairste keuze, sterk geïsoleerd.</p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg width="32" height="32" viewBox="0 0 32 32"><rect x="4" y="5" width="24" height="22" rx="2" fill="#2B2A28"/><rect x="7" y="8" width="18" height="16" rx="2" fill="#FBE08A"/><circle cx="22" cy="16" r="1.6" fill="#2B2A28"/></svg></div>
-        <h3>Kanteldeuren</h3>
-        <p>Eén stevig paneel dat naar boven kantelt. Robuust, onderhoudsarm en voordelig.</p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg width="32" height="32" viewBox="0 0 32 32"><rect x="4" y="5" width="24" height="22" rx="2" fill="#2B2A28"/><g fill="#FBE08A"><rect x="7" y="8" width="18" height="2.2" rx="1"/><rect x="7" y="11.5" width="18" height="2.2" rx="1"/><rect x="7" y="15" width="18" height="2.2" rx="1"/><rect x="7" y="18.5" width="18" height="2.2" rx="1"/><rect x="7" y="22" width="18" height="2.2" rx="1"/></g></svg></div>
-        <h3>Rolpoorten</h3>
-        <p>Rolt compact op in een kast bovenaan. Ideaal bij beperkte plafondhoogte.</p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg width="32" height="32" viewBox="0 0 32 32"><rect x="4" y="5" width="24" height="22" rx="2" fill="#2B2A28"/><g fill="#FBE08A"><rect x="7" y="8" width="4" height="16" rx="1.5"/><rect x="13" y="8" width="4" height="16" rx="1.5"/><rect x="19" y="8" width="4" height="16" rx="1.5"/></g></svg></div>
-        <h3>Zijwaartse poorten</h3>
-        <p>Schuift opzij langs de muur. Handig wanneer je de poort deels open wil laten staan.</p>
-      </div>
-    </div>
-  </div>
+<!-- Section 3: Door Types -->
+<section id="types" class="py-24 bg-creme px-6">
+<div class="max-w-7xl mx-auto text-center mb-16">
+<span class="pill-eyebrow mb-4">Onze Collectie</span>
+<h2 class="text-4xl lg:text-5xl font-extrabold text-antraciet tracking-tighter mb-4">Elk type, elke maat</h2>
+<p class="text-warmgrijs max-w-2xl mx-auto">Vind de perfecte afsluiting voor jouw woning. Al onze poorten worden volledig op maat vervaardigd in onze Belgische werkplaats.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+<!-- Card 1 -->
+<div class="group bg-white p-8 rounded-2xl border border-warmgrijs/10 hover:shadow-xl hover:-translate-y-2 transition-all cursor-pointer">
+<div class="w-14 h-14 bg-botergeel flex items-center justify-center rounded-xl mb-6 group-hover:bg-amber transition-colors">
+<span class="material-symbols-outlined text-antraciet text-3xl">door_front</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Sectionaalpoorten</h3>
+<p class="text-warmgrijs text-sm mb-6 leading-relaxed">De meest populaire keuze. Optimaal ruimtegebruik en uitstekende isolatie.</p>
+<a class="text-amber font-bold text-sm flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity" href="#">
+                    Meer info <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white p-8 rounded-2xl border border-warmgrijs/10 hover:shadow-xl hover:-translate-y-2 transition-all cursor-pointer">
+<div class="w-14 h-14 bg-botergeel flex items-center justify-center rounded-xl mb-6 group-hover:bg-amber transition-colors">
+<span class="material-symbols-outlined text-antraciet text-3xl">door_sliding</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Kanteldeuren</h3>
+<p class="text-warmgrijs text-sm mb-6 leading-relaxed">Klassiek, degelijk en uiterst betrouwbaar. Beschikbaar in talloze stijlen.</p>
+<a class="text-amber font-bold text-sm flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity" href="#">
+                    Meer info <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+<!-- Card 3 -->
+<div class="group bg-white p-8 rounded-2xl border border-warmgrijs/10 hover:shadow-xl hover:-translate-y-2 transition-all cursor-pointer">
+<div class="w-14 h-14 bg-botergeel flex items-center justify-center rounded-xl mb-6 group-hover:bg-amber transition-colors">
+<span class="material-symbols-outlined text-antraciet text-3xl">vertical_shades</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Rolpoorten</h3>
+<p class="text-warmgrijs text-sm mb-6 leading-relaxed">Ideaal wanneer het plafond vrij moet blijven voor verlichting of berging.</p>
+<a class="text-amber font-bold text-sm flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity" href="#">
+                    Meer info <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+<!-- Card 4 -->
+<div class="group bg-white p-8 rounded-2xl border border-warmgrijs/10 hover:shadow-xl hover:-translate-y-2 transition-all cursor-pointer">
+<div class="w-14 h-14 bg-botergeel flex items-center justify-center rounded-xl mb-6 group-hover:bg-amber transition-colors">
+<span class="material-symbols-outlined text-antraciet text-3xl">door_back</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Zijwaartse poorten</h3>
+<p class="text-warmgrijs text-sm mb-6 leading-relaxed">Handig als loopdeur-functie en bij lage plafondhoogtes.</p>
+<a class="text-amber font-bold text-sm flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity" href="#">
+                    Meer info <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</div>
 </section>
-
-<!-- PROCES -->
-<section id="proces">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Werkwijze</span>
-      <h2>In 4 stappen geregeld</h2>
-      <p>Transparant van begin tot eind, met zo weinig mogelijk gedoe voor jou.</p>
-    </div>
-    <div class="steps">
-      <div class="step"><div class="num">1</div><h3>Offerte aanvragen</h3><p>Vul online je wensen in: type, afmetingen, kleur en foto's van je garage.</p></div>
-      <div class="step"><div class="num">2</div><h3>Jij meet op</h3><p>Met onze meethulp meet je zelf je opening op. Bezorg ons je maten en foto's, wij maken de offerte.</p></div>
-      <div class="step"><div class="num">3</div><h3>Betalen &amp; inplannen</h3><p>Akkoord? Betaal het voorschot met QR-code en kies meteen je plaatsingsdatum.</p></div>
-      <div class="step"><div class="num">4</div><h3>Plaatsing</h3><p>Ons vast team plaatst je poort vakkundig af en legt de werking uit.</p></div>
-    </div>
-  </div>
+<!-- Section 4: Process -->
+<section id="proces" class="py-24 px-6 relative overflow-hidden">
+<div class="max-w-7xl mx-auto relative">
+<h2 class="text-4xl font-extrabold text-antraciet tracking-tighter text-center mb-20">In 4 stappen geregeld</h2>
+<div class="relative">
+<!-- Line background -->
+<div class="hidden lg:block absolute top-12 left-0 w-full h-0.5 bg-botergeel -z-10"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="text-center group">
+<div class="w-24 h-24 rounded-full bg-white border-4 border-botergeel flex items-center justify-center mx-auto mb-6 text-2xl font-black text-antraciet group-hover:bg-amber group-hover:border-amber transition-all shadow-lg">1</div>
+<h4 class="font-bold mb-2">Offerte aanvragen</h4>
+<p class="text-sm text-warmgrijs">Vul je gegevens in en ontvang direct een schatting.</p>
+</div>
+<div class="text-center group">
+<div class="w-24 h-24 rounded-full bg-white border-4 border-botergeel flex items-center justify-center mx-auto mb-6 text-2xl font-black text-antraciet group-hover:bg-amber group-hover:border-amber transition-all shadow-lg">2</div>
+<h4 class="font-bold mb-2">Jij meet op</h4>
+<p class="text-sm text-warmgrijs">Wij voorzien een eenvoudige gids voor de juiste maten.</p>
+</div>
+<div class="text-center group">
+<div class="w-24 h-24 rounded-full bg-white border-4 border-botergeel flex items-center justify-center mx-auto mb-6 text-2xl font-black text-antraciet group-hover:bg-amber group-hover:border-amber transition-all shadow-lg">3</div>
+<h4 class="font-bold mb-2">Betalen &amp; inplannen</h4>
+<p class="text-sm text-warmgrijs">Kies je datum en betaal veilig via QR.</p>
+</div>
+<div class="text-center group">
+<div class="w-24 h-24 rounded-full bg-white border-4 border-botergeel flex items-center justify-center mx-auto mb-6 text-2xl font-black text-antraciet group-hover:bg-amber group-hover:border-amber transition-all shadow-lg">4</div>
+<h4 class="font-bold mb-2">Plaatsing</h4>
+<h4 class="font-bold mb-2">Plaatsing</h4>
+<p class="text-sm text-warmgrijs">Onze monteurs komen langs voor een vlekkeloze installatie.</p>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<!-- WAAROM -->
-<section id="waarom" class="bg-soft">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Waarom Portisol</span>
-      <h2>Vakwerk zonder verrassingen</h2>
-    </div>
-    <div class="usps">
-      <div class="usp"><div class="chk">✓</div><div><h3>Jarenlange ervaring</h3><p>Een vakman met jaren ervaring in de sector plaatst elke poort persoonlijk.</p></div></div>
-      <div class="usp"><div class="chk">✓</div><div><h3>Echt op maat</h3><p>Geen standaardmaten: elke poort wordt gemaakt naar jouw exacte opening.</p></div></div>
-      <div class="usp"><div class="chk">✓</div><div><h3>Eerlijke prijs</h3><p>Heldere offerte zonder kleine lettertjes. Wat je ziet, is wat je betaalt.</p></div></div>
-      <div class="usp"><div class="chk">✓</div><div><h3>Eén aanspreekpunt</h3><p>Van offerte tot nazorg, je hebt steeds dezelfde contactpersoon.</p></div></div>
-      <div class="usp"><div class="chk">✓</div><div><h3>Vlotte planning</h3><p>Plan je plaatsingsdatum online, zonder heen-en-weer gebel.</p></div></div>
-      <div class="usp"><div class="chk">✓</div><div><h3>5 jaar garantie</h3><p>Op zowel de poort als de plaatsing, plus onderhoud op afspraak.</p></div></div>
-    </div>
-  </div>
+<!-- Section 5: Why-us -->
+<section id="waarom" class="py-24 bg-white px-6">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-4xl font-extrabold text-antraciet tracking-tighter mb-12">Vakwerk zonder verrassingen</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="flex items-start gap-4 p-4 rounded-xl hover:bg-creme transition-colors">
+<div class="w-10 h-10 bg-botergeel rounded-lg flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-antraciet text-xl" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h5 class="font-bold text-sm">Jarenlange ervaring</h5>
+<p class="text-xs text-warmgrijs">Onze experts kennen elke poort door en door.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl hover:bg-creme transition-colors">
+<div class="w-10 h-10 bg-botergeel rounded-lg flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-antraciet text-xl" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h5 class="font-bold text-sm">Echt op maat</h5>
+<p class="text-xs text-warmgrijs">Geen standaardmaten, alles is uniek.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl hover:bg-creme transition-colors">
+<div class="w-10 h-10 bg-botergeel rounded-lg flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-antraciet text-xl" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h5 class="font-bold text-sm">Eerlijke prijs</h5>
+<p class="text-xs text-warmgrijs">Transparante offertes zonder extra kosten.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl hover:bg-creme transition-colors">
+<div class="w-10 h-10 bg-botergeel rounded-lg flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-antraciet text-xl" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h5 class="font-bold text-sm">Één aanspreekpunt</h5>
+<p class="text-xs text-warmgrijs">Persoonlijk contact van begin tot eind.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl hover:bg-creme transition-colors">
+<div class="w-10 h-10 bg-botergeel rounded-lg flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-antraciet text-xl" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h5 class="font-bold text-sm">Vlotte planning</h5>
+<p class="text-xs text-warmgrijs">Wij werken efficiënt en volgens afspraak.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl hover:bg-creme transition-colors">
+<div class="w-10 h-10 bg-botergeel rounded-lg flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-antraciet text-xl" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h5 class="font-bold text-sm">5 jaar garantie</h5>
+<p class="text-xs text-warmgrijs">Zorgeloos genieten van uw nieuwe poort.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<img class="rounded-3xl shadow-xl w-full aspect-[4/5] object-cover" data-alt="A professional technician in clean workwear carefully installing a high-end garage door system in a bright, modern garage. The environment is orderly and well-lit, emphasizing the professionalism and attention to detail of the Portisol team. The atmosphere is warm and trustworthy, showcasing a scene of Belgian craftsmanship in action during the golden hour." src="assets/img/usp-sfeer.png"/>
+<div class="absolute -bottom-8 -right-8 bg-amber p-8 rounded-2xl hidden md:block">
+<p class="text-4xl font-black text-antraciet">25+</p>
+<p class="text-sm font-bold opacity-80 uppercase tracking-tighter">Jaar Ervaring</p>
+</div>
+</div>
+</div>
 </section>
-
-<!-- SCREENS & ROLLUIKEN (DIY) -->
-<section id="diy">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Nieuw &middot; doe-het-zelf</span>
-      <h2>Ook screens &amp; rolluiken</h2>
-      <p>Op zonne-energie, dus geen bekabeling. Je plaatst ze eenvoudig zelf, wij leveren aan huis.</p>
-    </div>
-    <div class="cards" style="grid-template-columns:repeat(3,1fr)">
-      <div class="card">
-        <div class="ico"><svg width="32" height="32" viewBox="0 0 32 32"><rect x="5" y="5" width="22" height="6" rx="2" fill="#2B2A28"/><g fill="#FBE08A"><rect x="6" y="12" width="20" height="2.4" rx="1"/><rect x="6" y="15.5" width="20" height="2.4" rx="1"/><rect x="6" y="19" width="20" height="2.4" rx="1"/><rect x="6" y="22.5" width="20" height="2.4" rx="1"/></g></svg></div>
-        <h3>Screens &amp; rolluiken</h3>
-        <p>Zonwering en rolluiken op maat, klaar om zelf te monteren.</p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="6" fill="#F4B740"/><g stroke="#2B2A28" stroke-width="2" stroke-linecap="round"><line x1="16" y1="3" x2="16" y2="7"/><line x1="16" y1="25" x2="16" y2="29"/><line x1="3" y1="16" x2="7" y2="16"/><line x1="25" y1="16" x2="29" y2="16"/><line x1="7" y1="7" x2="9.5" y2="9.5"/><line x1="22.5" y1="22.5" x2="25" y2="25"/><line x1="25" y1="7" x2="22.5" y2="9.5"/><line x1="9.5" y1="22.5" x2="7" y2="25"/></g></svg></div>
-        <h3>Op zonne-energie</h3>
-        <p>Ingebouwd zonnepaneel: geen kabels, geen elektricien, zo geplaatst.</p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg width="32" height="32" viewBox="0 0 32 32"><path d="M7 16l6 6 12-12" fill="none" stroke="#2B2A28" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>2 jaar garantie</h3>
-        <p>Bereken je prijs in de configurator en bestel meteen online.</p>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:30px">
-      <a href="offerte.html#screens" class="btn btn-primary btn-lg">Stel samen &amp; bekijk prijs →</a>
-    </div>
-  </div>
+<!-- Section 6: DIY Screens -->
+<section id="diy" class="py-24 px-6">
+<div class="max-w-7xl mx-auto bg-antraciet rounded-[2rem] p-8 lg:p-16 overflow-hidden relative group">
+<!-- Background Decoration -->
+<div class="absolute top-0 right-0 w-96 h-96 bg-amber/10 blur-[100px] -mr-48 -mt-48 transition-all group-hover:bg-amber/20"></div>
+<div class="grid lg:grid-cols-2 gap-16 items-center relative z-10">
+<div class="order-2 lg:order-1">
+<span class="bg-botergeel text-antraciet text-xs font-black px-4 py-1 rounded-full uppercase mb-6 inline-block">Nieuw · doe-het-zelf</span>
+<h2 class="text-4xl lg:text-5xl font-extrabold text-creme tracking-tighter mb-6 leading-tight">Zonwering op zonne-energie, <span class="text-amber">zonder gedoe.</span></h2>
+<p class="text-warmgrijs text-lg mb-10 leading-relaxed">
+                        Premium zip-screens op zonne-energie, met tot 45 dagen autonomie: geen kabels trekken en geen breekwerk. Het screendoek filtert tot 97% van de zonnewarmte en is tot 6× efficiënter dan binnenzonwering. Met ingebouwde horfunctie, keuze uit alle RAL-kleuren en aan huis geleverd voor een vlotte montage.
+                    </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+<div class="bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-sm">
+<span class="material-symbols-outlined text-amber mb-2">solar_power</span>
+<p class="text-xs font-bold text-creme">Op zonne-energie</p>
+</div>
+<div class="bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-sm">
+<span class="material-symbols-outlined text-amber mb-2">wb_sunny</span>
+<p class="text-xs font-bold text-creme">Tot 97% zonwering</p>
+</div>
+<div class="bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-sm">
+<span class="material-symbols-outlined text-amber mb-2">verified</span>
+<p class="text-xs font-bold text-creme">2 jaar garantie</p>
+</div>
+</div>
+<button class="bg-amber text-antraciet font-bold px-10 py-5 rounded-xl shadow-amber-glow hover:scale-105 transition-all text-lg flex items-center justify-center gap-3" onclick="location.href='offerte.html#screens'">
+                        Stel samen &amp; bekijk prijs
+                        <span class="material-symbols-outlined">settings_suggest</span>
+</button>
+</div>
+<div class="order-1 lg:order-2">
+<img class="rounded-2xl shadow-2xl w-full aspect-video object-cover" data-alt="A sleek, modern architectural exterior with large glass windows featuring Portisol's premium solar-powered roller screens. The screens are a deep charcoal color, perfectly integrated into the white facade. The scene is bright with natural sunlight, demonstrating the cooling effect and modern aesthetic of the DIY sunshades. The style is clean, high-end, and functional." src="assets/img/screen-zonne.png"/>
+</div>
+</div>
+</div>
 </section>
-
-<!-- CTA BAND -->
-<section>
-  <div class="container">
-    <div class="cta-band">
-      <div class="dot"></div>
-      <h2>Klaar voor jouw nieuwe garagepoort?</h2>
-      <p>Vraag vrijblijvend je offerte aan, je krijgt binnen 2 werkdagen antwoord.</p>
-      <a href="offerte.html" class="btn btn-ghost btn-lg">Offerte aanvragen →</a>
-    </div>
-  </div>
+<!-- Section 6b: Comfort van binnenuit -->
+<section class="py-24 px-6 bg-white">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1">
+<img class="rounded-2xl shadow-2xl w-full aspect-[4/3] object-cover" alt="Comfort van binnenuit: zicht naar buiten door een neergelaten zip-screen" src="assets/img/screen-lifestyle.png"/>
+</div>
+<div class="order-1 lg:order-2">
+<span class="pill-eyebrow mb-6">Comfort van binnenuit</span>
+<h2 class="text-4xl lg:text-5xl font-extrabold text-antraciet tracking-tighter mb-6 leading-tight">Hou de hitte buiten, <span class="text-amber">het zicht binnen.</span></h2>
+<p class="text-gray-600 text-lg mb-8 leading-relaxed">De screen vangt de zonnewarmte op vóór ze je raam bereikt, terwijl je helder naar buiten blijft kijken. Aangenaam koel in de zomer, zacht gefilterd licht, en 's avonds extra privacy.</p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-antraciet font-semibold"><span class="material-symbols-outlined text-amber">thermostat</span>Tot 6× efficiënter dan binnenzonwering</li>
+<li class="flex items-center gap-3 text-antraciet font-semibold"><span class="material-symbols-outlined text-amber">visibility</span>Helder zicht naar buiten behouden</li>
+<li class="flex items-center gap-3 text-antraciet font-semibold"><span class="material-symbols-outlined text-amber">pest_control</span>Ingebouwde horfunctie tegen insecten</li>
+</ul>
+</div>
+</div>
 </section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="cols">
-      <div>
-        <div class="foot-logo">
-          <svg viewBox="0 0 120 120" width="34" height="34" aria-hidden="true">
-            <clipPath id="df"><rect x="28" y="34" width="64" height="60" rx="8"/></clipPath>
-            <rect x="16" y="22" width="88" height="84" rx="18" fill="#FBE08A"/>
-            <rect x="28" y="34" width="64" height="60" rx="8" fill="#2B2A28"/>
-            <g clip-path="url(#df)" fill="#FBE08A"><rect x="28" y="58" width="64" height="8" rx="3"/><rect x="28" y="69" width="64" height="8" rx="3"/><rect x="28" y="80" width="64" height="8" rx="3"/><rect x="28" y="91" width="64" height="8" rx="3"/></g>
-            <g stroke="#F4B740" stroke-width="2.6" stroke-linecap="round"><line x1="60" y1="41" x2="60" y2="37.5"/><line x1="54.3" y1="43.3" x2="52.2" y2="41.2"/><line x1="65.7" y1="43.3" x2="67.8" y2="41.2"/><line x1="51.5" y1="49" x2="48.5" y2="49"/><line x1="68.5" y1="49" x2="71.5" y2="49"/></g><circle cx="60" cy="49" r="7" fill="#F4B740"/>
-          </svg>
-          portisol
-        </div>
-        <p>Poorten op maat én zonwering, met zorg geplaatst en geleverd.</p>
-        <p>BTW BE 0xxx.xxx.xxx</p>
-      </div>
-      <div>
-        <h4>Navigatie</h4>
-        <p><a href="#types">Onze poorten</a></p>
-        <p><a href="#proces">Werkwijze</a></p>
-        <p><a href="offerte.html">Offerte aanvragen</a></p>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <p><a href="mailto:info@portisol.be">info@portisol.be</a></p>
-        <p>+32 (0)xxx xx xx xx</p>
-        <p>Lokeren, Oost-Vlaanderen</p>
-      </div>
-    </div>
-    <div class="copyright">© 2026 Portisol · portisol.be · Alle rechten voorbehouden</div>
-  </div>
+<!-- Section 7: Dark CTA -->
+<section class="py-24 px-6 bg-creme">
+<div class="max-w-4xl mx-auto bg-antraciet rounded-3xl p-12 text-center relative overflow-hidden shadow-2xl">
+<div class="absolute inset-0 bg-gradient-to-br from-amber/10 to-transparent pointer-events-none"></div>
+<h2 class="text-3xl lg:text-4xl font-extrabold text-creme tracking-tight mb-6 relative z-10">Klaar voor jouw nieuwe garagepoort?</h2>
+<p class="text-warmgrijs text-lg mb-10 max-w-xl mx-auto relative z-10">Vraag vrijblijvend je offerte aan, je krijgt binnen 2 werkdagen antwoord.</p>
+<button class="bg-amber text-antraciet font-bold px-12 py-4 rounded-xl shadow-amber-glow hover:scale-105 transition-all relative z-10" onclick="location.href='offerte.html'">
+                Offerte aanvragen
+            </button>
+</div>
+</section>
+<!-- Section 8: Footer -->
+<footer class="bg-antraciet text-warmgrijs py-16 px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<!-- Brand Column -->
+<div>
+<img alt="Portisol Logo" class="h-10 w-auto mb-6 opacity-95" src="assets/logo/portisol-horizontaal-dark.svg"/>
+<p class="text-xs leading-relaxed mb-4">
+                    Portisol BV<br/>
+                    BE 0123.456.789<br/>
+                    Vakmanschap in elke beweging.
+                </p>
+<div class="flex gap-4">
+<a class="hover:text-amber transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="hover:text-amber transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+</div>
+</div>
+<!-- Nav Column -->
+<div>
+<h5 class="text-creme font-bold mb-6">Navigatie</h5>
+<ul class="space-y-3 text-sm">
+<li><a class="hover:text-creme transition-colors" href="index.html#types">Onze poorten</a></li>
+<li><a class="hover:text-creme transition-colors" href="index.html#diy">Screens &amp; rolluiken</a></li>
+<li><a class="hover:text-creme transition-colors" href="index.html#proces">Werkwijze</a></li>
+<li><a class="hover:text-creme transition-colors" href="index.html#waarom">Waarom Portisol</a></li>
+</ul>
+</div>
+<!-- Contact Column -->
+<div>
+<h5 class="text-creme font-bold mb-6">Contact</h5>
+<ul class="space-y-3 text-sm">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">mail</span> info@portisol.be</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">location_on</span> Lokeren, België</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">call</span> +32 (0) 9 123 45 67</li>
+</ul>
+</div>
+<!-- Hours Column -->
+<div>
+<h5 class="text-creme font-bold mb-6">Openingsuren</h5>
+<ul class="space-y-2 text-xs">
+<li class="flex justify-between"><span>Ma - Vr:</span> <span>09:00 - 18:00</span></li>
+<li class="flex justify-between"><span>Za:</span> <span>10:00 - 14:00</span></li>
+<li class="flex justify-between"><span>Zo:</span> <span>Gesloten</span></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+<p>© 2026 Portisol. Alle rechten voorbehouden.</p>
+<div class="flex gap-6">
+<a class="hover:text-creme transition-colors" href="#">Privacybeleid</a>
+<a class="hover:text-creme transition-colors" href="#">Algemene Voorwaarden</a>
+<a class="hover:text-creme transition-colors" href="#">Cookies</a>
+</div>
+</div>
 </footer>
+<script>
+        // Micro-interactions and subtle effects
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+            btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+            btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+        });
 
-</body>
-</html>
+        // Simple Fade-in Observer
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
+            observer.observe(el);
+        });
+    </script>
+</body></html>
