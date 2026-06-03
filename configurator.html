@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="nl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stel samen — Portisol</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="assets/tw.css">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+<style>
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;vertical-align:middle}
+  /* ---- configurator (namespaced) ---- */
+  .cfg{--cz:#FBE08A;--cb:#FDEFB8;--ca:#F4B740;--cant:#2B2A28;--cg:#9A938A}
+  .cfg-cats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+  .cfg-cat{flex:1;min-width:150px;display:flex;align-items:center;gap:12px;border:1.5px solid #e7ddc6;
+           background:#fff;border-radius:14px;padding:13px 16px;cursor:pointer;transition:all .12s}
+  .cfg-cat:hover{border-color:var(--ca)}
+  .cfg-cat.on{background:var(--cz);border-color:var(--ca);box-shadow:0 10px 20px -12px rgba(244,183,64,.8)}
+  .cfg-cat .em{font-size:24px}
+  .cfg-cat .tt{font-weight:700;font-size:15px;color:var(--cant);line-height:1.1}
+  .cfg-cat .ds{font-size:11.5px;color:#8a7f64;font-weight:600}
+  .cfg-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start}
+  @media(max-width:820px){.cfg-grid{grid-template-columns:1fr}}
+  .cfg-stage{background:linear-gradient(180deg,#fff,#fbf6ea);border:1px solid #ece4d0;border-radius:18px;
+             padding:16px;box-shadow:0 22px 46px -34px rgba(43,42,40,.6)}
+  .cfg-stage svg{width:100%;height:auto;display:block;border-radius:10px}
+  .cfg-badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}
+  .cfg-badge{background:#fff;border:1px solid #ece4d0;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:600;color:#5c574f}
+  .cfg-badge b{color:var(--cant)}
+  .cfg-panel{background:#fff;border:1px solid #e9e1cf;border-radius:18px;padding:22px;box-shadow:0 22px 46px -34px rgba(43,42,40,.6)}
+  .cfg-field{margin-bottom:18px}
+  .cfg-lab{font-size:12px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#9a8f76;margin-bottom:9px}
+  .cfg-opts{display:flex;gap:7px;flex-wrap:wrap}
+  .cfg-opt{border:1.5px solid #e7ddc6;background:#fff;border-radius:10px;padding:8px 13px;font-size:13.5px;font-weight:600;cursor:pointer;transition:all .12s;color:#46423b}
+  .cfg-opt:hover{border-color:var(--ca)}
+  .cfg-opt.on{background:var(--cz);border-color:var(--ca);color:var(--cant)}
+  .cfg-swatch{display:flex;gap:9px;align-items:center}
+  .cfg-sw{width:36px;height:36px;border-radius:10px;border:2px solid #e7ddc6;cursor:pointer;position:relative}
+  .cfg-sw.on{border-color:var(--ca);box-shadow:0 0 0 3px rgba(244,183,64,.25)}
+  .cfg-sw input{position:absolute;inset:0;opacity:0;cursor:pointer}
+  .cfg-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .cfg-row input[type=range]{width:100%;accent-color:var(--ca)}
+  .cfg-val{font-weight:700;font-size:14px;min-width:70px;text-align:right;color:var(--cant)}
+  .cfg-switch{position:relative;width:48px;height:27px;flex:0 0 auto}
+  .cfg-switch input{opacity:0;width:0;height:0}
+  .cfg-slider{position:absolute;inset:0;background:#e2d8c0;border-radius:999px;transition:.15s;cursor:pointer}
+  .cfg-slider:before{content:"";position:absolute;height:21px;width:21px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.15s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+  .cfg-switch input:checked + .cfg-slider{background:var(--ca)}
+  .cfg-switch input:checked + .cfg-slider:before{transform:translateX(21px)}
+  .cfg-price{background:linear-gradient(135deg,#FFFBEF,#FDEFB8);border:1px solid #f0e4c2;border-radius:14px;padding:17px}
+  .cfg-pl{display:flex;justify-content:space-between;font-size:13px;color:#6b6356;padding:2px 0}
+  .cfg-big{font-size:29px;font-weight:800;letter-spacing:-.02em;margin:2px 0;color:var(--cant)}
+  .cfg-excl{font-size:12.5px;color:#8a7f68}
+  .cfg-cta{display:block;width:100%;text-align:center;background:var(--ca);color:var(--cant);font-weight:700;font-size:15px;text-decoration:none;padding:13px;border-radius:12px;margin-top:13px;border:0;cursor:pointer;box-shadow:0 12px 22px -10px rgba(244,183,64,.85)}
+  .cfg-note{font-size:11.5px;color:var(--cg);text-align:center;margin-top:9px;line-height:1.5}
+  .cfg-sum{background:var(--cb);border-radius:10px;padding:11px 14px;font-size:14px;font-weight:600;color:#7a5f12;margin-bottom:16px}
+  .cfg-openbtn{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:7px;
+               background:rgba(43,42,40,.82);color:#fff;border:0;border-radius:999px;padding:9px 16px;font:600 13.5px Quicksand,sans-serif;
+               cursor:pointer;backdrop-filter:blur(4px);box-shadow:0 8px 18px -8px rgba(0,0,0,.6);transition:background .15s,transform .1s}
+  .cfg-openbtn:hover{background:rgba(43,42,40,.95)}
+  .cfg-openbtn:active{transform:translateX(-50%) scale(.96)}
+  .cfg-openbtn .material-symbols-outlined{font-size:19px}
+  [hidden]{display:none!important}
+</style>
+</head><body>
+
+<nav class="bg-white/70 backdrop-blur-md sticky top-0 z-50 w-full shadow-sm border-b border-warmgrijs/10">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<a class="flex items-center gap-2 group" href="index.html">
+<img alt="Portisol Logo" class="h-14 w-auto" src="assets/logo/portisol-horizontaal.svg"/>
+</a>
+<div class="hidden md:flex gap-8 items-center font-headline tracking-tight font-medium">
+<a class="text-antraciet hover:text-amber transition-colors" href="index.html#types">Onze poorten</a>
+<a class="text-antraciet hover:text-amber transition-colors" href="index.html#diy">Screens &amp; rolluiken</a>
+<a class="text-amber font-bold border-b-2 border-amber pb-1" href="configurator.html">Stel samen</a>
+<a class="text-antraciet hover:text-amber transition-colors" href="realisaties.html">Realisaties</a>
+</div>
+<button class="bg-amber hover:bg-amber/90 text-antraciet font-bold px-6 py-2.5 rounded-full shadow-amber-glow transition-all active:scale-95 border-0 cursor-pointer" onclick="location.href='offerte.html'">Offerte aanvragen</button>
+</div>
+</nav>
+
+<div class="page-hero">
+  <span class="eyebrow">Stel samen &amp; bekijk je richtprijs</span>
+  <h1>Ontwerp jouw oplossing op maat</h1>
+  <p>Garagepoort, screen, rolluik of hor: kies je product, pas alles aan en zie het meteen veranderen. Helemaal op maat, met een richtprijs.</p>
+</div>
+
+<section style="padding-top:18px">
+  <div class="container">
+    <div class="cfg">
+
+      <!-- PRODUCTKEUZE -->
+      <div class="cfg-cats" id="cats">
+        <div class="cfg-cat on" data-v="poort"><span class="em">🚪</span><div><div class="tt">Garagepoort</div><div class="ds">Op maat · mét plaatsing</div></div></div>
+        <div class="cfg-cat" data-v="screen"><span class="em">☀️</span><div><div class="tt">Solar screen</div><div class="ds">Zonwering · zelf plaatsen</div></div></div>
+        <div class="cfg-cat" data-v="rolluik"><span class="em">🪟</span><div><div class="tt">Rolluik</div><div class="ds">Op zonne-energie · zelf plaatsen</div></div></div>
+        <div class="cfg-cat" data-v="hor"><span class="em">🦟</span><div><div class="tt">Hor / vliegenraam</div><div class="ds">Tegen insecten · zelf plaatsen</div></div></div>
+      </div>
+
+      <div class="cfg-grid">
+        <!-- PREVIEW -->
+        <div>
+          <div class="cfg-stage" style="position:relative"><svg id="cfgArt" viewBox="0 0 680 560" aria-label="Voorbeeld"></svg>
+            <button type="button" class="cfg-openbtn" id="openBtn"><span class="material-symbols-outlined" id="openIcon">door_open</span><span id="openTxt">Open de poort</span></button>
+          </div>
+          <div class="cfg-badges" id="cfgBadges"></div>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="cfg-panel">
+          <div class="cfg-field" data-for="poort">
+            <div class="cfg-lab">Type poort</div>
+            <div class="cfg-opts" id="optType">
+              <button type="button" class="cfg-opt on" data-v="sectionaal">Sectionaal</button>
+              <button type="button" class="cfg-opt" data-v="kantel">Kanteldeur</button>
+              <button type="button" class="cfg-opt" data-v="rol">Rolpoort</button>
+              <button type="button" class="cfg-opt" data-v="zij">Zijwaarts</button>
+            </div>
+          </div>
+
+          <div class="cfg-field" data-for="poort">
+            <div class="cfg-lab">Uitzicht panelen</div>
+            <div class="cfg-opts" id="optLook">
+              <button type="button" class="cfg-opt on" data-v="vlak">Vlak</button>
+              <button type="button" class="cfg-opt" data-v="cassette">Cassette</button>
+              <button type="button" class="cfg-opt" data-v="gelijnd">Gelijnd</button>
+              <button type="button" class="cfg-opt" data-v="hout">Woodgrain</button>
+            </div>
+          </div>
+
+          <div class="cfg-field" data-for="hor">
+            <div class="cfg-lab">Type hor</div>
+            <div class="cfg-opts" id="optHor">
+              <button type="button" class="cfg-opt on" data-v="vast">Vaste hor</button>
+              <button type="button" class="cfg-opt" data-v="plisse">Plissé</button>
+              <button type="button" class="cfg-opt" data-v="oprol">Oprolbaar</button>
+              <button type="button" class="cfg-opt" data-v="draai">Draaideur</button>
+              <button type="button" class="cfg-opt" data-v="schuif">Schuifdeur</button>
+            </div>
+          </div>
+
+          <div class="cfg-field">
+            <div class="cfg-lab" id="kleurLab">Kleur</div>
+            <div class="cfg-swatch" id="optKleur" style="flex-wrap:wrap"></div>
+            <div id="kleurNaam" style="font-size:13px;font-weight:600;color:#9A938A;margin-top:8px"></div>
+            <div style="font-size:11.5px;color:#9A938A;margin-top:3px">Standaard: wit, antracietgrijs en gouden eik. Vele andere RAL-kleuren mogelijk op aanvraag.</div>
+          </div>
+
+          <div class="cfg-field" data-for="poort">
+            <div class="cfg-lab">Ramen</div>
+            <div class="cfg-row"><span style="font-size:14.5px;font-weight:600;color:#46423b">Rij raampjes bovenaan</span>
+              <label class="cfg-switch"><input type="checkbox" id="optRamen"><span class="cfg-slider"></span></label></div>
+          </div>
+
+          <div class="cfg-field" data-for="poort">
+            <div class="cfg-lab">Muur / omgeving</div>
+            <div class="cfg-opts" id="optMuur">
+              <button type="button" class="cfg-opt on" data-v="pleister">Pleister</button>
+              <button type="button" class="cfg-opt" data-v="baksteen">Baksteen</button>
+              <button type="button" class="cfg-opt" data-v="beton">Beton</button>
+            </div>
+          </div>
+
+          <div class="cfg-field">
+            <div class="cfg-lab">Afmeting (cm)</div>
+            <div class="cfg-row" style="margin-bottom:10px"><span style="font-size:14px;font-weight:600;color:#46423b;min-width:62px">Breedte</span>
+              <input type="range" id="br"><span class="cfg-val" id="brv"></span></div>
+            <div class="cfg-row"><span style="font-size:14px;font-weight:600;color:#46423b;min-width:62px">Hoogte</span>
+              <input type="range" id="ho"><span class="cfg-val" id="hov"></span></div>
+          </div>
+
+          <div class="cfg-price">
+            <div class="cfg-pl"><span id="prLabel">Richtprijs</span></div>
+            <div class="cfg-big" id="incl">€ —</div>
+            <div class="cfg-excl" id="excl">excl. btw € —</div>
+            <div class="cfg-pl" style="margin-top:7px"><span>Oppervlakte</span><span id="m2">— m²</span></div>
+            <button type="button" class="cfg-cta" id="cta">Vraag je offerte aan →</button>
+            <div class="cfg-note" id="prNote"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aanvraag verloopt via offerte.html (één trechter): de CTA neemt de samenstelling mee. -->
+
+    </div>
+  </div>
+</section>
+
+<footer class="bg-antraciet text-warmgrijs py-16 px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div>
+<img alt="Portisol Logo" class="h-10 w-auto mb-6 opacity-95" src="assets/logo/portisol-horizontaal-dark.svg"/>
+<p class="text-xs leading-relaxed mb-4">Portisol BV<br/>BE 0123.456.789<br/>Vakmanschap in elke beweging.</p>
+</div>
+<div>
+<h5 class="text-creme font-bold mb-6">Navigatie</h5>
+<ul class="space-y-3 text-sm list-none p-0 m-0">
+<li><a class="hover:text-creme transition-colors" href="index.html#types">Onze poorten</a></li>
+<li><a class="hover:text-creme transition-colors" href="configurator.html">Stel samen</a></li>
+<li><a class="hover:text-creme transition-colors" href="index.html#proces">Werkwijze</a></li>
+<li><a class="hover:text-creme transition-colors" href="offerte.html">Offerte aanvragen</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-creme font-bold mb-6">Contact</h5>
+<ul class="space-y-3 text-sm list-none p-0 m-0">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">mail</span> info@portisol.be</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">location_on</span> Lokeren, Belgi&euml;</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">call</span> +32 (0) 9 123 45 67</li>
+</ul>
+</div>
+<div>
+<h5 class="text-creme font-bold mb-6">Openingsuren</h5>
+<ul class="space-y-2 text-xs list-none p-0 m-0">
+<li class="flex justify-between"><span>Ma - Vr:</span> <span>09:00 - 18:00</span></li>
+<li class="flex justify-between"><span>Za:</span> <span>10:00 - 14:00</span></li>
+<li class="flex justify-between"><span>Zo:</span> <span>Gesloten</span></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+<p>&copy; 2026 Portisol. Alle rechten voorbehouden.</p>
+<div class="flex gap-6"><span class="opacity-70">Concept &middot; nog niet publiek</span></div>
+</div>
+</footer>
+
+<script>
+(function(){
+  const CAT = {
+    poort:   {label:'Garagepoort', br:[200,600,280], ho:[180,300,215], btw:.06, plaats:true,
+              note:'Richtprijs incl. plaatsing &amp; motor · incl. 6% btw. Definitieve prijs na controle van de maten.'},
+    screen:  {label:'Solar screen', br:[60,450,200], ho:[60,350,180], btw:.21, plaats:false,
+              note:'Richtprijs · zip-screen op zonne-energie · zelf plaatsen · incl. 21% btw.'},
+    rolluik: {label:'Rolluik', br:[60,450,160], ho:[60,350,150], btw:.21, plaats:false,
+              note:'Richtprijs · op zonne-energie · zelf plaatsen · incl. 21% btw.'},
+    hor:     {label:'Hor / vliegenraam', br:[40,300,100], ho:[40,260,140], btw:.21, plaats:false,
+              note:'Richtprijs · zelf plaatsen · incl. 21% btw.'}
+  };
+  const NL = { sectionaal:'Sectionaalpoort', kantel:'Kanteldeur', rol:'Rolpoort', zij:'Zijwaartse poort',
+               vlak:'Vlak', cassette:'Cassette', gelijnd:'Gelijnd', hout:'Woodgrain',
+               vast:'Vaste hor', plisse:'Plissé hor', oprol:'Oprolbare hor', draai:'Hordeur (draai)', schuif:'Hordeur (schuif)' };
+  const BASIS = { sectionaal:1500, kantel:1150, rol:1750, zij:1650 };
+  const HORM2 = { vast:70, plisse:130, oprol:150, draai:200, schuif:230 };
+  /* max-afmetingen per poorttype [breedte, hoogte] in cm, uit de Soprofen-catalogus */
+  const POORTDIM = { sectionaal:[550,300], kantel:[350,225], rol:[400,400], zij:[600,300] };
+
+  const S = { cat:'poort', type:'sectionaal', look:'vlak', hor:'vast', kleur:'9016', ramen:false, br:280, ho:215, open:0, muur:'pleister' };
+  /* Kleuren uit de Soprofen-catalogus: standaardtinten + voorkeur-RAL (std = geen meerprijs) */
+  const RAL = [
+    {code:'9016', naam:'Wit', hex:'#F1F0EA', std:true},
+    {code:'7016', naam:'Antracietgrijs', hex:'#383E42', std:true},
+    {code:'eik', naam:'Gouden eik', hex:'#8A5A2B', std:true, decor:true},
+    {code:'1015', naam:'Licht ivoor', hex:'#E6D2B5'},
+    {code:'3004', naam:'Purperrood', hex:'#6B1F23'},
+    {code:'7021', naam:'Zwartgrijs', hex:'#2E3234'},
+    {code:'7035', naam:'Lichtgrijs', hex:'#C8CAC6'},
+    {code:'7039', naam:'Kwartsgrijs', hex:'#6B665E'},
+    {code:'8014', naam:'Sepiabruin', hex:'#4A3526'},
+    {code:'8019', naam:'Grijsbruin', hex:'#3D3635'},
+    {code:'9002', naam:'Grijswit', hex:'#E7EBDA'},
+    {code:'9005', naam:'Gitzwart', hex:'#0E0E10'},
+    {code:'9006', naam:'Witaluminium', hex:'#A5A8A6'},
+    {code:'9007', naam:'Grijs aluminium', hex:'#8F8F8C'}
+  ];
+  const RALMAP = Object.fromEntries(RAL.map(r=>[r.code,r]));
+  const $ = id => document.getElementById(id);
+
+  function fill(){ return (RALMAP[S.kleur]||RAL[0]).hex; }
+  function shade(hex,p){ const n=parseInt(hex.slice(1),16);let r=n>>16,g=(n>>8)&255,b=n&255;
+    const f=p<0?(1+p):1,a=p>0?p:0; r=Math.round(r*f+(255-r)*a);g=Math.round(g*f+(255-g)*a);b=Math.round(b*f+(255-b)*a);
+    return '#'+(1<<24|r<<16|g<<8|b).toString(16).slice(1); }
+  /* HSL-shading: past lichtheid aan maar bewaart kleurtoon + verzadiging (donkere RAL blijft helder) */
+  const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+  function toHSL(hex){ const n=parseInt(hex.slice(1),16); let r=(n>>16&255)/255,g=(n>>8&255)/255,b=(n&255)/255;
+    const mx=Math.max(r,g,b),mn=Math.min(r,g,b),d=mx-mn; let h=0,s=0,l=(mx+mn)/2;
+    if(d){ s=l>.5?d/(2-mx-mn):d/(mx+mn);
+      h=mx===r?(g-b)/d+(g<b?6:0):mx===g?(b-r)/d+2:(r-g)/d+4; h/=6; }
+    return [h,s,l]; }
+  function fromHSL(h,s,l){ const f=n=>{ const k=(n+h*12)%12; return l-s*Math.min(l,1-l)*Math.max(-1,Math.min(k-3,9-k,1)); };
+    const x=n=>Math.round(f(n)*255); return '#'+(1<<24|x(0)<<16|x(8)<<8|x(4)).toString(16).slice(1); }
+  /* lum(c,dl): verschuif lichtheid met dl in [-1,1]; donkere kleuren krijgen iets extra verzadiging in de schaduw */
+  function lum(hex,dl){ const [h,s,l]=toHSL(hex); return fromHSL(h, clamp(s+(dl<0?.05:0),0,1), clamp(l+dl,0,1)); }
+  /* tone(c): kleurtonen + sheen-sterkte; bij verzadigde RAL wordt de witte glans zwakker zodat de kleur fel blijft */
+  function tone(c){ const [,s]=toHSL(c); return {
+    top:lum(c, .12*(1-s*.55)), bot:lum(c,-.10), edge:lum(c,-.20), hi:lum(c,.16*(1-s*.45)),
+    sheenK:clamp(.85-s*.75,.12,.85) }; }
+
+  /* ---------- tekeningen ---------- */
+  /* === MUUR/OMGEVING === alle wandvarianten zitten in deze ene functie; nieuwe toevoegen = hier een tak bijzetten */
+  function wallPoort(){ const floor=486, m=S.muur||'pleister';
+    let s=`<defs>
+      <linearGradient id="gWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4efe4"/><stop offset="1" stop-color="#e3dccb"/></linearGradient>
+      <linearGradient id="gDrive" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d3ccbc"/><stop offset="1" stop-color="#b6ae9c"/></linearGradient>
+      <linearGradient id="gBrick" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c2855e"/><stop offset="1" stop-color="#a5623c"/></linearGradient>
+      <linearGradient id="gBeton" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dad8d2"/><stop offset="1" stop-color="#bbb8b0"/></linearGradient>
+      <radialGradient id="gLamp" cx="0.5" cy="0.4" r="0.6"><stop offset="0" stop-color="#fff3cf" stop-opacity=".85"/><stop offset="1" stop-color="#fff3cf" stop-opacity="0"/></radialGradient>
+    </defs>`;
+    if(m==='baksteen'){ s+=`<rect x="0" y="0" width="680" height="${floor}" fill="#cdb49f"/>`; // voegmortel
+      const bw=46,bh=18,gap=3; let row=0;
+      for(let y=0;y<floor;y+=bh+gap){ const off=(row%2)?-(bw/2):0;
+        for(let x=off;x<680;x+=bw+gap){ s+=`<rect x="${x}" y="${y}" width="${bw}" height="${bh}" rx="2" fill="url(#gBrick)"/><rect x="${x}" y="${y}" width="${bw}" height="3" fill="#fff" opacity=".06"/><rect x="${x}" y="${y+bh-3}" width="${bw}" height="3" fill="#000" opacity=".08"/>`; } row++; }
+    } else if(m==='beton'){ s+=`<rect x="0" y="0" width="680" height="${floor}" fill="url(#gBeton)"/>`;
+      for(let x=130;x<680;x+=170) s+=`<line x1="${x}" y1="0" x2="${x}" y2="${floor}" stroke="#a8a59d" stroke-width="1" opacity=".4"/>`; // bekistingsnaden
+      for(let y=150;y<floor;y+=150){ s+=`<line x1="0" y1="${y}" x2="680" y2="${y}" stroke="#a8a59d" stroke-width="1" opacity=".35"/>`;
+        for(let x=130;x<680;x+=170) s+=`<circle cx="${x}" cy="${y}" r="2" fill="#8f8c84" opacity=".5"/>`; } // ankergaten
+    } else { s+=`<rect x="0" y="0" width="680" height="${floor}" fill="url(#gWall)"/>`;
+      for(let y=70;y<floor;y+=46) s+=`<line x1="0" y1="${y}" x2="680" y2="${y}" stroke="#cdc4af" stroke-width="1" opacity=".25"/>`; }
+    // gedeeld: plafondschaduw + wandlamp + oprit met perspectief
+    s+=`<rect x="0" y="0" width="680" height="60" fill="#2b2a28" opacity=".05"/>`;
+    s+=`<ellipse cx="612" cy="96" rx="105" ry="120" fill="url(#gLamp)"/>`;
+    s+=`<rect x="600" y="74" width="24" height="30" rx="5" fill="#3a3833"/><rect x="603" y="78" width="18" height="20" rx="3" fill="#ffe9a8"/>`;
+    s+=`<rect x="0" y="${floor}" width="680" height="${560-floor}" fill="url(#gDrive)"/>`;
+    s+=`<rect x="0" y="${floor}" width="680" height="3" fill="#9c947f"/>`;
+    const vpx=340; for(let i=-3;i<=3;i++){ const fx=340+i*150; s+=`<line x1="${fx}" y1="560" x2="${vpx+i*22}" y2="${floor+2}" stroke="#a59c86" stroke-width="1" opacity=".4"/>`; }
+    for(let y=floor+18;y<560;y+=18) s+=`<line x1="0" y1="${y}" x2="680" y2="${y}" stroke="#a59c86" stroke-width="1" opacity=".3"/>`;
+    return s; }
+  function wallWin(){ let s=`<defs>
+      <linearGradient id="gWin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3eee2"/><stop offset="1" stop-color="#e6dfce"/></linearGradient>
+      <linearGradient id="gSky" x1="0" y1="0" x2="0.2" y2="1"><stop offset="0" stop-color="#bcd8ea"/><stop offset=".54" stop-color="#dceaf1"/><stop offset=".54" stop-color="#cfe7d6"/><stop offset="1" stop-color="#bcd9bf"/></linearGradient>
+    </defs><rect x="0" y="0" width="680" height="560" fill="url(#gWin)"/>`;
+    for(let y=60;y<560;y+=48) s+=`<line x1="0" y1="${y}" x2="680" y2="${y}" stroke="#cdc4af" stroke-width="1" opacity=".16"/>`;
+    return s; }
+  /* raam met glas + uitzicht erachter; producten hangen hiervoor */
+  function glassWindow(b){ const o=10; let s='';
+    s+=`<rect x="${b.left-o}" y="${b.top-o}" width="${b.dw+o*2}" height="${b.dh+o*2}" rx="6" fill="#cfc6b0"/>`;
+    s+=`<rect x="${b.left-3}" y="${b.top-3}" width="${b.dw+6}" height="${b.dh+6}" rx="5" fill="#1f1e1c" opacity=".22"/>`;
+    s+=`<rect x="${b.left}" y="${b.top}" width="${b.dw}" height="${b.dh}" fill="url(#gSky)"/>`;
+    s+=`<path d="M${b.left} ${b.top+b.dh*.22} L${b.left+b.dw*.5} ${b.top} L${b.left+b.dw*.72} ${b.top} L${b.left} ${b.top+b.dh*.6} Z" fill="#fff" opacity=".16"/>`;
+    s+=`<rect x="${b.cx-2}" y="${b.top}" width="4" height="${b.dh}" fill="#fff" opacity=".45"/><rect x="${b.left}" y="${b.cy-2}" width="${b.dw}" height="4" fill="#fff" opacity=".45"/>`;
+    s+=`<rect x="${b.left}" y="${b.top}" width="${b.dw}" height="${b.dh}" rx="2" fill="none" stroke="#e9e4d7" stroke-width="5"/>`;
+    s+=`<rect x="${b.left-o-4}" y="${b.bottom+o}" width="${b.dw+o*2+8}" height="9" rx="3" fill="#d8d0bb"/>`;
+    return s; }
+
+  function texture(x,y,w,h,c){ const edge=lum(c,-.16),hi=lum(c,.14),gr=lum(c,-.08); let t='';
+    if(S.look==='cassette'){ const px=Math.max(6,Math.round(w*.12)),py=Math.max(8,Math.round(h*.18)),iw=w-px*2,ih=h-py*2;
+      // verzonken paneel met afgeschuinde rand: licht linksboven, donker rechtsonder
+      t+=`<rect x="${x+px}" y="${y+py}" width="${iw}" height="${ih}" rx="4" fill="${lum(c,-.04)}"/>`;
+      t+=`<path d="M${x+px} ${y+py+ih} V${y+py} H${x+px+iw}" fill="none" stroke="${hi}" stroke-width="2" opacity=".75"/>`;
+      t+=`<path d="M${x+px} ${y+py+ih} H${x+px+iw} V${y+py}" fill="none" stroke="${edge}" stroke-width="2" opacity=".65"/>`;
+    } else if(S.look==='gelijnd'){ for(let gx=x+12;gx<x+w-8;gx+=16) t+=`<line x1="${gx}" y1="${y+3}" x2="${gx}" y2="${y+h-3}" stroke="${edge}" stroke-width="1.1" opacity=".4"/><line x1="${gx+1.4}" y1="${y+3}" x2="${gx+1.4}" y2="${y+h-3}" stroke="${hi}" stroke-width="1" opacity=".4"/>`;
+    } else if(S.look==='hout'){ for(let gy=y+5;gy<y+h-3;gy+=5){ const wob=Math.sin((gy+x)*.05)*2.2; t+=`<path d="M${x+3} ${gy} q ${(w-6)/2} ${wob} ${w-6} 0" fill="none" stroke="${gr}" stroke-width="1" opacity=".3"/>`; } }
+    return t; }
+
+  function drawPoort(){ const c=fill(),t=tone(c);
+    const top0=t.top,bot0=t.bot,edge=t.edge,hi=t.hi;
+    const ratio=S.br/S.ho; let dh=360,dw=dh*ratio; if(dw>460){dw=460;dh=dw/ratio;} if(dh>372){dh=372;dw=dh*ratio;}
+    const cx=340,floor=486,top=floor-dh,left=cx-dw/2,right=cx+dw/2,r=5;
+    let s=wallPoort();
+    s+=`<defs>
+      <linearGradient id="gDoor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${top0}"/><stop offset="1" stop-color="${bot0}"/></linearGradient>
+      <linearGradient id="gSheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".20"/><stop offset=".38" stop-color="#fff" stop-opacity="0"/></linearGradient>
+      <linearGradient id="gGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0eef4"/><stop offset=".5" stop-color="#c2d8e2"/><stop offset="1" stop-color="#a8c1cf"/></linearGradient>
+      <linearGradient id="gInt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16140f"/><stop offset="1" stop-color="#2d2a24"/></linearGradient>
+      <filter id="fSoft" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur stdDeviation="7"/></filter>
+    </defs>`;
+    // slagschaduw van de poort (licht linksboven -> schaduw naar rechtsonder)
+    s+=`<rect x="${left+11}" y="${top+15}" width="${dw}" height="${dh}" rx="${r}" fill="#2b2a28" opacity=".17" filter="url(#fSoft)"/>`;
+    // verzonken opening: buitenkader + dagkantschaduw rondom het blad
+    const fr=15;
+    s+=`<rect x="${left-fr}" y="${top-fr}" width="${dw+fr*2}" height="${dh+fr}" rx="9" fill="#d8d0bb"/>`;
+    s+=`<rect x="${left-fr}" y="${top-fr}" width="${dw+fr*2}" height="${dh+fr}" rx="9" fill="none" stroke="#b6ac93" stroke-width="2"/>`;
+    s+=`<rect x="${left-4}" y="${top-4}" width="${dw+8}" height="${dh+4}" rx="7" fill="#1f1e1c" opacity=".30"/>`;
+    // embossed logo (werkt op elke poortkleur): rechteronderhoek = (bx,by)
+    function markBadge(bx,by,sz){ const k=sz/120,ox=bx-sz,oy=by-sz,dark=lum(c,-.26),light=lum(c,.18);
+      let g=`<g transform="translate(${ox} ${oy}) scale(${k})" opacity=".88">`;
+      g+=`<g transform="translate(1.3 1.5)" fill="none" stroke="${light}" stroke-width="3" opacity=".5"><rect x="22" y="28" width="76" height="72" rx="14"/></g>`;
+      g+=`<rect x="22" y="28" width="76" height="72" rx="14" fill="none" stroke="${dark}" stroke-width="3"/>`;
+      for(const y of [60,71,82,93]) g+=`<rect x="30" y="${y}" width="60" height="6" rx="3" fill="${dark}" opacity=".75"/>`;
+      g+=`<circle cx="60" cy="49" r="7" fill="${dark}"/><g stroke="${dark}" stroke-width="2.6" stroke-linecap="round"><line x1="60" y1="41" x2="60" y2="37.5"/><line x1="54.3" y1="43.3" x2="52.2" y2="41.2"/><line x1="65.7" y1="43.3" x2="67.8" y2="41.2"/><line x1="51.5" y1="49" x2="48.5" y2="49"/><line x1="68.5" y1="49" x2="71.5" y2="49"/></g></g>`;
+      return g; }
+    // poortblad + garage-interieur erachter (zichtbaar bij openen)
+    const openPx=(S.open||0)*dh;
+    s+=`<clipPath id="dr"><rect x="${left}" y="${top}" width="${dw}" height="${dh}" rx="${r}"/></clipPath><g clip-path="url(#dr)">`;
+    s+=`<rect x="${left}" y="${top}" width="${dw}" height="${dh}" fill="url(#gInt)"/>`;
+    if(openPx>4) s+=`<rect x="${left}" y="${top+dh-openPx-2}" width="${dw}" height="7" fill="#000" opacity=".28"/>`;
+    s+=`<g transform="translate(0 ${-openPx})">`;
+    s+=`<rect x="${left}" y="${top}" width="${dw}" height="${dh}" fill="url(#gDoor)"/>`;
+    if(S.type==='rol'){ for(let y=top+5;y<top+dh;y+=10){ s+=`<rect x="${left}" y="${y}" width="${dw}" height="9" fill="none" stroke="${edge}" stroke-width=".8" opacity=".55"/><rect x="${left}" y="${y}" width="${dw}" height="2.5" fill="${hi}" opacity=".5"/>`; }
+    } else if(S.type==='zij'){ const n=Math.max(4,Math.round(dw/64)),pw=dw/n; for(let i=0;i<n;i++){const x=left+i*pw; s+=`<rect x="${x}" y="${top}" width="1.6" height="${dh}" fill="${hi}" opacity=".4"/><rect x="${x+pw-2}" y="${top}" width="2" height="${dh}" fill="${edge}" opacity=".6"/>`+texture(x,top,pw,dh,c);}
+    } else if(S.type==='kantel'){ s+=texture(left,top,dw,dh,c)+`<rect x="${left+10}" y="${top+10}" width="${dw-20}" height="${dh-20}" rx="4" fill="none" stroke="${edge}" stroke-width="1.4" opacity=".5"/>`;
+    } else { const n=Math.min(6,Math.max(3,Math.round(S.ho/45))),ph=dh/n; for(let i=0;i<n;i++){const y=top+i*ph; s+=`<rect x="${left}" y="${y}" width="${dw}" height="2" fill="${hi}" opacity=".55"/><rect x="${left}" y="${y+ph-3}" width="${dw}" height="3" fill="${edge}" opacity=".65"/>`+texture(left,y,dw,ph,c);} }
+    if(S.ramen && S.type!=='rol'){ const wy=top+(S.type==='kantel'?24:20),wh=Math.min(36,dh*.16),n=Math.max(3,Math.round(dw/70)),gap=14,ww=(dw-gap*(n+1))/n;
+      for(let i=0;i<n;i++){const x=left+gap+i*(ww+gap); s+=`<rect x="${x}" y="${wy}" width="${ww}" height="${wh}" rx="3" fill="url(#gGlass)" stroke="${edge}" stroke-width="1.6"/><path d="M${x+ww*.18} ${wy+wh} L${x+ww*.5} ${wy} L${x+ww*.68} ${wy} L${x+ww*.36} ${wy+wh} Z" fill="#fff" opacity=".22"/>`;} }
+    s+=`<rect x="${left}" y="${top}" width="${dw}" height="${dh}" fill="url(#gSheen)" opacity="${t.sheenK}"/>`;
+    s+=`<rect x="${left}" y="${top}" width="${dw}" height="6" fill="${hi}" opacity=".5"/>`;
+    s+=markBadge(right-14, top+dh-14, 46);
+    if(S.type!=='rol') s+=`<rect x="${cx-26}" y="${floor-34}" width="52" height="9" rx="4.5" fill="${edge}"/><rect x="${cx-26}" y="${floor-34}" width="52" height="3" rx="1.5" fill="${hi}" opacity=".6"/>`;
+    s+=`</g></g>`;
+    if(S.type==='rol') s+=`<rect x="${left-8}" y="${top-16}" width="${dw+16}" height="20" rx="6" fill="${edge}"/><rect x="${left-8}" y="${top-16}" width="${dw+16}" height="6" rx="3" fill="${hi}" opacity=".5"/>`;
+    s+=`<rect x="${left}" y="${top}" width="${dw}" height="${dh}" rx="${r}" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="1.2"/>`;
+    return s+dims(left,right,top,floor); }
+
+  function winBox(){ const ratio=S.br/S.ho; let dh=320,dw=dh*ratio; if(dw>380){dw=380;dh=dw/ratio;} if(dh>340){dh=340;dw=dh*ratio;}
+    const cx=320,cy=288,left=cx-dw/2,top=cy-dh/2; return {dw,dh,left,top,right:left+dw,bottom:top+dh,cx,cy}; }
+
+  function drawScreen(){ const c=fill(),t=tone(c),b=winBox(); let s=wallWin();
+    s+=`<defs><linearGradient id="gFab" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t.top}"/><stop offset="1" stop-color="${t.bot}"/></linearGradient>
+      <linearGradient id="gSheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>`;
+    s+=glassWindow(b);
+    const cover=b.dh*(1-(S.open||0));
+    s+=`<rect x="${b.left-8}" y="${b.top-2}" width="6" height="${b.dh+4}" rx="2" fill="${t.edge}"/><rect x="${b.right+2}" y="${b.top-2}" width="6" height="${b.dh+4}" rx="2" fill="${t.edge}"/>`; // rails
+    if(cover>6){ s+=`<clipPath id="scr"><rect x="${b.left}" y="${b.top}" width="${b.dw}" height="${cover}"/></clipPath><g clip-path="url(#scr)">`;
+      s+=`<rect x="${b.left}" y="${b.top}" width="${b.dw}" height="${b.dh}" fill="url(#gFab)"/>`;
+      for(let x=b.left+4;x<b.right-2;x+=5) s+=`<line x1="${x}" y1="${b.top}" x2="${x}" y2="${b.bottom}" stroke="${lum(c,-.08)}" stroke-width=".6" opacity=".4"/>`; // zip-weefsel
+      s+=`<rect x="${b.left}" y="${b.top}" width="${b.dw}" height="${b.dh}" fill="url(#gSheen)" opacity="${t.sheenK}"/>`;
+      s+=`</g>`;
+      s+=`<rect x="${b.left-2}" y="${b.top+cover-8}" width="${b.dw+4}" height="11" rx="3" fill="${t.edge}"/><rect x="${b.left-2}" y="${b.top+cover-8}" width="${b.dw+4}" height="3" rx="1.5" fill="${t.hi}" opacity=".5"/>`; // onderlat
+    }
+    s+=`<rect x="${b.left-12}" y="${b.top-24}" width="${b.dw+24}" height="22" rx="6" fill="${t.bot}"/><rect x="${b.left-12}" y="${b.top-24}" width="${b.dw+24}" height="6" rx="3" fill="${t.hi}" opacity=".5"/>`; // cassette
+    s+=`<text x="${b.right-4}" y="${b.top-30}" font-size="22" text-anchor="end">☀️</text>`;
+    return s+dims(b.left,b.right,b.top,b.bottom); }
+
+  function drawRolluik(){ const c=fill(),t=tone(c),b=winBox(); let s=wallWin();
+    s+=`<defs><linearGradient id="gSlat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t.hi}"/><stop offset=".5" stop-color="${c}"/><stop offset="1" stop-color="${t.bot}"/></linearGradient></defs>`;
+    s+=glassWindow(b);
+    const cover=b.dh*(1-(S.open||0));
+    s+=`<rect x="${b.left-8}" y="${b.top-2}" width="6" height="${b.dh+4}" rx="2" fill="${t.edge}"/><rect x="${b.right+2}" y="${b.top-2}" width="6" height="${b.dh+4}" rx="2" fill="${t.edge}"/>`; // rails
+    if(cover>6){ s+=`<clipPath id="rl"><rect x="${b.left}" y="${b.top}" width="${b.dw}" height="${cover}"/></clipPath><g clip-path="url(#rl)">`;
+      for(let y=b.top;y<b.top+cover+13;y+=13){ s+=`<rect x="${b.left}" y="${y}" width="${b.dw}" height="11" fill="url(#gSlat)" stroke="${t.edge}" stroke-width=".7"/><rect x="${b.left}" y="${y}" width="${b.dw}" height="2.5" fill="${t.hi}" opacity=".5"/>`; }
+      s+=`</g>`;
+    }
+    s+=`<rect x="${b.left-12}" y="${b.top-24}" width="${b.dw+24}" height="22" rx="6" fill="${t.bot}"/><rect x="${b.left-12}" y="${b.top-24}" width="${b.dw+24}" height="6" rx="3" fill="${t.hi}" opacity=".5"/>`; // rolkast
+    return s+dims(b.left,b.right,b.top,b.bottom); }
+
+  function drawHor(){ const c=fill(),t=tone(c),b=winBox(); let s=wallWin();
+    const mesh=lum(c,-.06);
+    s+=`<defs><pattern id="mesh" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M6 0H0V6" fill="none" stroke="${mesh}" stroke-width=".6" opacity=".5"/></pattern>
+      <linearGradient id="gFrame" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${t.hi}"/><stop offset="1" stop-color="${t.bot}"/></linearGradient></defs>`;
+    s+=glassWindow(b);
+    function pane(x,y,w,h){ return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#dbe9f0" opacity=".3"/><rect x="${x}" y="${y}" width="${w}" height="${h}" fill="url(#mesh)"/><rect x="${x}" y="${y}" width="${w}" height="${h}" fill="none" stroke="url(#gFrame)" stroke-width="7"/>`; }
+    if(S.hor==='plisse'){
+      s+=`<rect x="${b.left-6}" y="${b.top-4}" width="${b.dw+12}" height="${b.dh+8}" rx="5" fill="${t.bot}"/>`;
+      s+=`<rect x="${b.left}" y="${b.top}" width="${b.dw}" height="${b.dh}" fill="#dbe9f0" opacity=".5"/>`;
+      for(let x=b.left;x<b.right;x+=8){ s+=`<line x1="${x}" y1="${b.top}" x2="${x+4}" y2="${b.bottom}" stroke="${t.edge}" stroke-width="2" opacity=".7"/>`; }
+      s+=`<rect x="${b.left}" y="${b.top}" width="${b.dw}" height="${b.dh}" fill="none" stroke="url(#gFrame)" stroke-width="7"/>`;
+    } else if(S.hor==='oprol'){
+      s+=`<rect x="${b.left-8}" y="${b.top}" width="6" height="${b.dh}" fill="${t.bot}"/><rect x="${b.right+2}" y="${b.top}" width="6" height="${b.dh}" fill="${t.bot}"/>`;
+      s+=pane(b.left,b.top,b.dw,b.dh)+`<rect x="${b.left-2}" y="${b.bottom-8}" width="${b.dw+4}" height="10" rx="3" fill="${t.edge}"/>`;
+      s+=`<rect x="${b.left-12}" y="${b.top-22}" width="${b.dw+24}" height="22" rx="6" fill="${t.bot}"/><rect x="${b.left-12}" y="${b.top-22}" width="${b.dw+24}" height="6" rx="3" fill="${t.hi}" opacity=".5"/>`; // oprolkast
+    } else if(S.hor==='draai'){
+      s+=pane(b.left,b.top,b.dw,b.dh);
+      s+=`<rect x="${b.right-16}" y="${b.cy-14}" width="7" height="28" rx="3" fill="${t.edge}"/>`;
+      s+=`<circle cx="${b.left+3}" cy="${b.top+18}" r="3" fill="${t.edge}"/><circle cx="${b.left+3}" cy="${b.bottom-18}" r="3" fill="${t.edge}"/>`;
+    } else if(S.hor==='schuif'){
+      const hw=b.dw/2;
+      s+=`<rect x="${b.left-6}" y="${b.top-6}" width="${b.dw+12}" height="6" fill="${t.edge}"/><rect x="${b.left-6}" y="${b.bottom}" width="${b.dw+12}" height="6" fill="${t.edge}"/>`;
+      s+=pane(b.left,b.top,hw,b.dh);
+      s+=pane(b.left+hw-10,b.top,hw+10,b.dh);
+      s+=`<rect x="${b.left+hw-2}" y="${b.cy-14}" width="6" height="28" rx="3" fill="${t.edge}"/>`;
+    } else { s+=pane(b.left,b.top,b.dw,b.dh); }
+    return s+dims(b.left,b.right,b.top,b.bottom); }
+
+  function dims(left,right,top,bottom){ let s=`<g stroke="#b3a98f" stroke-width="1.5" fill="#8a7f64" font-family="Quicksand" font-size="13" font-weight="700">`;
+    s+=`<line x1="${left}" y1="${bottom+22}" x2="${right}" y2="${bottom+22}"/><text x="${(left+right)/2}" y="${bottom+40}" text-anchor="middle" stroke="none">${S.br} cm</text>`;
+    s+=`<line x1="${right+26}" y1="${top}" x2="${right+26}" y2="${bottom}"/><text x="${right+40}" y="${(top+bottom)/2}" text-anchor="middle" stroke="none" transform="rotate(90 ${right+40} ${(top+bottom)/2})">${S.ho} cm</text></g>`;
+    return s; }
+
+  /* ---------- prijs ---------- */
+  const tr = s => (window.PortisolI18n ? window.PortisolI18n.t(s) : s);
+  function prijs(){ const m2=(S.br/100)*(S.ho/100); let p;
+    const meerRAL=!(RALMAP[S.kleur]||{}).std;
+    if(S.cat==='poort'){ p=BASIS[S.type]+Math.max(0,m2-5)*150; if(S.look==='cassette')p+=140; if(S.look==='hout')p+=110; if(S.ramen)p+=190; if(meerRAL)p+=250; }
+    else if(S.cat==='screen'){ p=Math.max(149,m2*130); if(meerRAL)p*=1.12; }
+    else if(S.cat==='rolluik'){ p=Math.max(169,m2*165); if(meerRAL)p*=1.12; }
+    else { p=Math.max(89,m2*HORM2[S.hor]); if(meerRAL)p*=1.10; }
+    const incl=p*(1+CAT[S.cat].btw), eur=n=>'€ '+Math.round(n).toLocaleString('nl-BE');
+    $('m2').textContent=m2.toFixed(2).replace('.',',')+' m²';
+    $('incl').textContent=eur(incl);
+    $('excl').textContent=tr('excl.')+' '+Math.round(CAT[S.cat].btw*100)+'% '+tr('btw')+' '+eur(p);
+    return {p,incl}; }
+
+  /* ---------- render ---------- */
+  function render(){
+    $('cfgArt').innerHTML = S.cat==='poort'?drawPoort():S.cat==='screen'?drawScreen():S.cat==='rolluik'?drawRolluik():drawHor();
+    // velden tonen per categorie
+    document.querySelectorAll('.cfg-field[data-for]').forEach(f=>{ f.hidden = f.getAttribute('data-for')!==S.cat; });
+    $('kleurLab').textContent = tr(S.cat==='poort'?'Kleur':'Kleur (kader)');
+    const rk=RALMAP[S.kleur]||RAL[0]; $('kleurNaam').textContent = (rk.decor?rk.naam:'RAL '+rk.code+' · '+rk.naam)+(rk.std?' · standaard':'');
+    // badges
+    let bd=[];
+    if(S.cat==='poort'){ bd=[tr(NL[S.type]),tr(NL[S.look]),`<b>${S.br} × ${S.ho} cm</b>`,tr('⚙️ Gemotoriseerd'),tr(S.ramen?'Met ramen':'Zonder ramen')]; }
+    else if(S.cat==='screen'){ bd=[tr('Zip-screen'),tr('☀️ Op zonne-energie'),`<b>${S.br} × ${S.ho} cm</b>`,tr('2 jaar garantie')]; }
+    else if(S.cat==='rolluik'){ bd=[tr('Rolluik'),tr('☀️ Op zonne-energie'),`<b>${S.br} × ${S.ho} cm</b>`,tr('2 jaar garantie')]; }
+    else { bd=[tr(NL[S.hor]),`<b>${S.br} × ${S.ho} cm</b>`,tr('🦟 Tegen insecten'),tr('Zelf plaatsen')]; }
+    $('cfgBadges').innerHTML = bd.map(t=>`<span class="cfg-badge">${t}</span>`).join('');
+    $('prLabel').textContent = tr(CAT[S.cat].plaats?'Richtprijs incl. plaatsing & motor':'Richtprijs · zelf plaatsen');
+    $('prNote').innerHTML = tr(CAT[S.cat].note);
+    const hasOpen=['poort','screen','rolluik'].includes(S.cat); $('openBtn').hidden=!hasOpen;
+    if(hasOpen){ const isOpen=S.open>.5;
+      if(S.cat==='poort'){ $('openTxt').textContent=tr(isOpen?'Sluit de poort':'Open de poort'); $('openIcon').textContent=isOpen?'door_front':'door_open'; }
+      else { $('openTxt').textContent=tr(isOpen?'Laat zakken':'Schuif omhoog'); $('openIcon').textContent=isOpen?'arrow_downward':'arrow_upward'; } }
+    prijs(); samenvatting();
+  }
+
+  function samenvatting(){ let txt=tr(CAT[S.cat].label);
+    if(S.cat==='poort') txt+=` · ${tr(NL[S.type])} · ${tr(NL[S.look])}`;
+    if(S.cat==='hor') txt+=` · ${tr(NL[S.hor])}`;
+    const rk=RALMAP[S.kleur]||RAL[0]; const kl = rk.decor?rk.naam.toLowerCase():'RAL '+rk.code+' '+rk.naam;
+    txt+=` · ${kl} · ${S.br}×${S.ho} cm`;
+    if(S.cat==='poort'&&S.ramen) txt+=' · '+tr('met ramen');
+    S._tekst=txt; }
+
+  /* ---------- categorie wissel ---------- */
+  function setDims(reset){ const c=CAT[S.cat];
+    let maxBr=c.br[1], maxHo=c.ho[1];
+    if(S.cat==='poort' && POORTDIM[S.type]){ maxBr=POORTDIM[S.type][0]; maxHo=POORTDIM[S.type][1]; }
+    if(reset){ S.br=c.br[2]; S.ho=c.ho[2]; }
+    S.br=Math.min(Math.max(S.br,c.br[0]),maxBr); S.ho=Math.min(Math.max(S.ho,c.ho[0]),maxHo);
+    $('br').min=c.br[0]; $('br').max=maxBr; $('ho').min=c.ho[0]; $('ho').max=maxHo;
+    $('br').value=S.br; $('ho').value=S.ho; $('brv').textContent=S.br+' cm'; $('hov').textContent=S.ho+' cm'; }
+  function setCat(cat){ S.cat=cat; S.open=0;
+    setDims(true);
+    document.querySelectorAll('#cats .cfg-cat').forEach(x=>x.classList.toggle('on',x.dataset.v===cat));
+    render(); }
+
+  /* ---------- events ---------- */
+  document.querySelectorAll('#cats .cfg-cat').forEach(b=>b.onclick=()=>setCat(b.dataset.v));
+  function pick(sel,key){ document.querySelectorAll(sel+' .cfg-opt').forEach(b=>b.onclick=()=>{
+    document.querySelectorAll(sel+' .cfg-opt').forEach(x=>x.classList.remove('on')); b.classList.add('on'); S[key]=b.dataset.v; render(); }); }
+  pick('#optLook','look'); pick('#optHor','hor'); pick('#optMuur','muur');
+  document.querySelectorAll('#optType .cfg-opt').forEach(b=>b.onclick=()=>{ document.querySelectorAll('#optType .cfg-opt').forEach(x=>x.classList.remove('on')); b.classList.add('on'); S.type=b.dataset.v; setDims(false); render(); });
+  $('optKleur').innerHTML = RAL.map(r=>`<div class="cfg-sw${r.code===S.kleur?' on':''}" data-v="${r.code}" style="background:${r.hex}" title="${r.decor?r.naam:'RAL '+r.code+' · '+r.naam}"></div>`).join('');
+  document.querySelectorAll('#optKleur .cfg-sw').forEach(b=>b.onclick=()=>{ document.querySelectorAll('#optKleur .cfg-sw').forEach(x=>x.classList.remove('on')); b.classList.add('on'); S.kleur=b.dataset.v; render(); });
+  $('optRamen').onchange=e=>{ S.ramen=e.target.checked; render(); };
+  $('br').oninput=e=>{ S.br=+e.target.value; $('brv').textContent=S.br+' cm'; render(); };
+  $('ho').oninput=e=>{ S.ho=+e.target.value; $('hov').textContent=S.ho+' cm'; render(); };
+  $('cta').onclick=()=>{ try{ localStorage.setItem('pt-config', JSON.stringify({ tekst:S._tekst||'', prijs:$('incl').textContent, cat:S.cat, br:S.br, ho:S.ho })); }catch(e){} location.href='offerte.html'+(S.cat==='poort'?'':'#screens'); };
+  // poort openen/sluiten met vloeiende animatie
+  let anim=null;
+  $('openBtn').onclick=()=>{ const target=S.open<.5?1:0,start=S.open,t0=performance.now(),d=750;
+    if(anim) cancelAnimationFrame(anim);
+    (function step(now){ const k=Math.min(1,(now-t0)/d), e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+      S.open=start+(target-start)*e; render(); if(k<1) anim=requestAnimationFrame(step); })(t0); };
+
+
+  // hervertaal de dynamische delen bij taalwissel
+  document.addEventListener('portisol:lang', render);
+
+  // preset via hash: #cat=screen
+  (function(){ const h=new URLSearchParams(location.hash.slice(1)); const c=h.get('cat');
+    if(c && CAT[c]) setCat(c); else setCat('poort'); })();
+})();
+</script>
+<script defer src="assets/i18n.js"></script>
+<script defer src="assets/site-content.js"></script>
+</body>
+</html>

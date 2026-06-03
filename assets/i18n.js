@@ -303,7 +303,206 @@
     "Straat, nr, postcode, gemeente": { fr: "Rue, n°, code postal, commune", de: "Straße, Nr., PLZ, Ort" },
     "Vertel ons gerust meer over je situatie of wensen…":
       { fr: "N'hésitez pas à nous en dire plus sur votre situation ou vos souhaits…",
-        de: "Erzählen Sie uns gerne mehr über Ihre Situation oder Wünsche…" }
+        de: "Erzählen Sie uns gerne mehr über Ihre Situation oder Wünsche…" },
+
+    /* Configurator (Stel samen) — hero + nav */
+    "Stel samen": { fr: "Composez", de: "Konfigurieren" },
+    "Stel samen & bekijk je richtprijs": { fr: "Composez & voyez votre prix indicatif", de: "Konfigurieren & Richtpreis ansehen" },
+    "Ontwerp jouw oplossing op maat": { fr: "Concevez votre solution sur mesure", de: "Gestalten Sie Ihre Lösung nach Maß" },
+    "Garagepoort, screen, rolluik of hor: kies je product, pas alles aan en zie het meteen veranderen. Helemaal op maat, met een richtprijs.":
+      { fr: "Porte de garage, screen, volet ou moustiquaire : choisissez votre produit, personnalisez tout et voyez le résultat changer en direct. Entièrement sur mesure, avec un prix indicatif.",
+        de: "Garagentor, Screen, Rollladen oder Insektenschutz: Wählen Sie Ihr Produkt, passen Sie alles an und sehen Sie die Änderung sofort. Komplett nach Maß, mit Richtpreis." },
+
+    /* Configurator — categoriekaarten */
+    "Garagepoort": { fr: "Porte de garage", de: "Garagentor" },
+    "Op maat · mét plaatsing": { fr: "Sur mesure · avec pose", de: "Nach Maß · mit Montage" },
+    "Solar screen": { fr: "Solar screen", de: "Solar-Screen" },
+    "Zonwering · zelf plaatsen": { fr: "Protection solaire · pose soi-même", de: "Sonnenschutz · Selbstmontage" },
+    "Op zonne-energie · zelf plaatsen": { fr: "À énergie solaire · pose soi-même", de: "Mit Solarenergie · Selbstmontage" },
+    "Hor / vliegenraam": { fr: "Moustiquaire", de: "Insektenschutz" },
+    "Tegen insecten · zelf plaatsen": { fr: "Contre les insectes · pose soi-même", de: "Gegen Insekten · Selbstmontage" },
+    "Zelf plaatsen": { fr: "Pose soi-même", de: "Selbstmontage" },
+
+    /* Configurator — bedieningen */
+    "Sectionaal": { fr: "Sectionnelle", de: "Sektional" },
+    "Zijwaarts": { fr: "Latérale", de: "Seitlich" },
+    "Vlak": { fr: "Plat", de: "Glatt" },
+    "Woodgrain": { fr: "Woodgrain", de: "Woodgrain" },
+    "Type hor": { fr: "Type de moustiquaire", de: "Insektenschutz-Typ" },
+    "Vaste hor": { fr: "Moustiquaire fixe", de: "Festes Insektengitter" },
+    "Plissé": { fr: "Plissé", de: "Plissee" },
+    "Oprolbaar": { fr: "Enroulable", de: "Aufrollbar" },
+    "Draaideur": { fr: "Porte battante", de: "Drehtür" },
+    "Schuifdeur": { fr: "Porte coulissante", de: "Schiebetür" },
+    "Plissé hor": { fr: "Moustiquaire plissée", de: "Plissee-Insektenschutz" },
+    "Oprolbare hor": { fr: "Moustiquaire enroulable", de: "Aufrollbarer Insektenschutz" },
+    "Hordeur (draai)": { fr: "Porte moustiquaire (battante)", de: "Insektenschutztür (Dreh)" },
+    "Hordeur (schuif)": { fr: "Porte moustiquaire (coulissante)", de: "Insektenschutztür (Schiebe)" },
+    "Ramen": { fr: "Hublots", de: "Fenster" },
+    "Rij raampjes bovenaan": { fr: "Rangée de hublots en haut", de: "Fensterreihe oben" },
+    "Muur / omgeving": { fr: "Mur / environnement", de: "Wand / Umgebung" },
+    "Pleister": { fr: "Crépi", de: "Putz" },
+    "Baksteen": { fr: "Brique", de: "Ziegel" },
+    "Beton": { fr: "Béton", de: "Beton" },
+    "Afmeting (cm)": { fr: "Dimensions (cm)", de: "Maße (cm)" },
+    "Kleur (kader)": { fr: "Couleur (cadre)", de: "Farbe (Rahmen)" },
+    "RAL op maat": { fr: "RAL sur mesure", de: "RAL nach Maß" },
+
+    /* Configurator — badges */
+    "⚙️ Gemotoriseerd": { fr: "⚙️ Motorisé", de: "⚙️ Motorisiert" },
+    "Met ramen": { fr: "Avec hublots", de: "Mit Fenstern" },
+    "Zonder ramen": { fr: "Sans hublots", de: "Ohne Fenster" },
+    "Zip-screen": { fr: "Zip-screen", de: "Zip-Screen" },
+    "☀️ Op zonne-energie": { fr: "☀️ À énergie solaire", de: "☀️ Mit Solarenergie" },
+    "🦟 Tegen insecten": { fr: "🦟 Contre les insectes", de: "🦟 Gegen Insekten" },
+    "DIY": { fr: "DIY", de: "DIY" },
+
+    /* Configurator — prijs + notes */
+    "Richtprijs incl. plaatsing & motor": { fr: "Prix indicatif pose & moteur incl.", de: "Richtpreis inkl. Montage & Motor" },
+    "Richtprijs · zelf plaatsen": { fr: "Prix indicatif · pose soi-même", de: "Richtpreis · Selbstmontage" },
+    "Richtprijs incl. plaatsing &amp; motor · incl. 6% btw. Definitieve prijs na controle van de maten.":
+      { fr: "Prix indicatif pose &amp; moteur inclus · TVA 6 % incl. Prix définitif après contrôle des mesures.",
+        de: "Richtpreis inkl. Montage &amp; Motor · inkl. 6 % MwSt. Endpreis nach Maßkontrolle." },
+    "Richtprijs · zip-screen op zonne-energie · zelf plaatsen · incl. 21% btw.":
+      { fr: "Prix indicatif · zip-screen à énergie solaire · pose soi-même · TVA 21 % incl.",
+        de: "Richtpreis · Zip-Screen mit Solarenergie · Selbstmontage · inkl. 21 % MwSt." },
+    "Richtprijs · op zonne-energie · zelf plaatsen · incl. 21% btw.":
+      { fr: "Prix indicatif · à énergie solaire · pose soi-même · TVA 21 % incl.",
+        de: "Richtpreis · mit Solarenergie · Selbstmontage · inkl. 21 % MwSt." },
+    "Richtprijs · zelf plaatsen · incl. 21% btw.":
+      { fr: "Prix indicatif · pose soi-même · TVA 21 % incl.",
+        de: "Richtpreis · Selbstmontage · inkl. 21 % MwSt." },
+    "excl.": { fr: "hors", de: "exkl." },
+    "btw": { fr: "TVA", de: "MwSt." },
+
+    /* Configurator — open/sluit */
+    "Open de poort": { fr: "Ouvrir la porte", de: "Tor öffnen" },
+    "Sluit de poort": { fr: "Fermer la porte", de: "Tor schließen" },
+    "Schuif omhoog": { fr: "Remonter", de: "Hochfahren" },
+    "Laat zakken": { fr: "Descendre", de: "Herunterfahren" },
+
+    /* Configurator — aanvraagformulier */
+    "Neem deze samenstelling over in mijn aanvraag ↓": { fr: "Reprendre cette configuration dans ma demande ↓", de: "Diese Konfiguration in meine Anfrage übernehmen ↓" },
+    "Vraag je offerte aan": { fr: "Demandez votre devis", de: "Fordern Sie Ihr Angebot an" },
+    "Vraag je offerte aan →": { fr: "Demandez votre devis →", de: "Angebot anfragen →" },
+    "Jouw samenstelling": { fr: "Votre configuration", de: "Ihre Konfiguration" },
+    "Adres": { fr: "Adresse", de: "Adresse" },
+    "Aanvraag versturen →": { fr: "Envoyer la demande →", de: "Anfrage senden →" },
+    "Vrijblijvend · geen verplichtingen": { fr: "Sans engagement · aucune obligation", de: "Unverbindlich · keine Verpflichtungen" },
+    "✓ Bedankt! Je aanvraag is verstuurd. We bekijken je samenstelling en contacteren je binnen 2 werkdagen met een offerte op maat.":
+      { fr: "✓ Merci ! Votre demande a été envoyée. Nous examinons votre configuration et vous contactons sous 2 jours ouvrables avec un devis sur mesure.",
+        de: "✓ Danke! Ihre Anfrage wurde gesendet. Wir prüfen Ihre Konfiguration und kontaktieren Sie innerhalb von 2 Werktagen mit einem maßgeschneiderten Angebot." },
+
+    /* Configurator — samenvatting (kleinletter) */
+    "wit": { fr: "blanc", de: "weiß" },
+    "antraciet": { fr: "anthracite", de: "anthrazit" },
+    "met ramen": { fr: "avec hublots", de: "mit Fenstern" },
+
+    /* Home — sectie Screens, rolluiken & horren */
+    "Screens, rolluiken": { fr: "Screens, volets", de: "Screens, Rollläden" },
+    "& horren.": { fr: "& moustiquaires.", de: "& Insektenschutz." },
+    "Premium oplossingen op zonne-energie die je zelf plaatst, zonder kabels trekken of breekwerk. Op maat geleverd en klaar in een namiddag, met gewoon gereedschap.":
+      { fr: "Des solutions premium à énergie solaire que vous posez vous-même, sans tirer de câbles ni travaux de percement. Livrées sur mesure et prêtes en une après-midi, avec des outils ordinaires.",
+        de: "Premium-Lösungen mit Solarenergie, die Sie selbst montieren, ohne Kabelziehen oder Stemmarbeiten. Maßgefertigt geliefert und an einem Nachmittag fertig, mit normalem Werkzeug." },
+    "Solar screens": { fr: "Solar screens", de: "Solar-Screens" },
+    "Tot 97% van de zonnewarmte buiten, met helder zicht naar buiten.":
+      { fr: "Jusqu'à 97 % de la chaleur solaire dehors, avec une vue claire vers l'extérieur.",
+        de: "Bis zu 97 % der Sonnenwärme draußen, mit klarer Sicht nach außen." },
+    "Verduistering, isolatie en extra veiligheid. Op zonne-energie en stil.":
+      { fr: "Occultation, isolation et sécurité supplémentaire. À énergie solaire et silencieux.",
+        de: "Verdunkelung, Isolierung und extra Sicherheit. Mit Solarenergie und leise." },
+    "Frisse lucht zonder insecten of pollen. Op maat: vast, plissé of als deur.":
+      { fr: "De l'air frais sans insectes ni pollen. Sur mesure : fixe, plissé ou en porte.",
+        de: "Frische Luft ohne Insekten oder Pollen. Nach Maß: fest, Plissee oder als Tür." },
+
+    /* Home — sectie Team */
+    "Het team": { fr: "L'équipe", de: "Das Team" },
+    "Het team achter Portisol": { fr: "L'équipe derrière Portisol", de: "Das Team hinter Portisol" },
+    "Bij Portisol weet je met wie je werkt: een klein, gedreven team met jarenlange ervaring dat je van offerte tot plaatsing persoonlijk begeleidt.":
+      { fr: "Chez Portisol, vous savez avec qui vous travaillez : une petite équipe motivée avec des années d'expérience qui vous accompagne personnellement, du devis à la pose.",
+        de: "Bei Portisol wissen Sie, mit wem Sie arbeiten: ein kleines, engagiertes Team mit langjähriger Erfahrung, das Sie vom Angebot bis zur Montage persönlich begleitet." },
+
+    /* Promobanner */
+    "Breng een klant aan en ontvang € 100 korting op je nieuwe poort.":
+      { fr: "Parrainez un client et recevez 100 € de réduction sur votre nouvelle porte.",
+        de: "Empfehlen Sie einen Kunden und erhalten Sie 100 € Rabatt auf Ihr neues Tor." },
+    "Bekijk de actie": { fr: "Voir l'offre", de: "Zur Aktion" },
+
+    /* Detailpagina's poorttypes — structuur */
+    "Home": { fr: "Accueil", de: "Startseite" },
+    "Alle details": { fr: "Tous les détails", de: "Alle Details" },
+
+    /* Detailpagina's — intro's */
+    "De meest populaire keuze: optimaal ruimtegebruik, uitstekende isolatie en eindeloos personaliseerbaar. De poort opent verticaal langs het plafond, zodat de zijmuren vrij blijven.":
+      { fr: "Le choix le plus populaire : gain de place optimal, excellente isolation et personnalisation infinie. La porte s'ouvre verticalement le long du plafond, laissant les murs latéraux libres.",
+        de: "Die beliebteste Wahl: optimale Raumnutzung, hervorragende Isolierung und endlose Personalisierung. Das Tor öffnet vertikal entlang der Decke, sodass die Seitenwände frei bleiben." },
+    "De klassieke, betrouwbare keuze. De poort kantelt in één vlak geheel vlot en geruisloos verticaal onder het plafond. Degelijk, duurzaam en verkrijgbaar in talloze designs.":
+      { fr: "Le choix classique et fiable. La porte bascule d'un seul tenant, en douceur et silencieusement, verticalement sous le plafond. Solide, durable et disponible dans de nombreux designs.",
+        de: "Die klassische, zuverlässige Wahl. Das Tor schwingt als ein Element sanft und geräuschlos vertikal unter die Decke. Solide, langlebig und in zahlreichen Designs erhältlich." },
+    "Ideaal wanneer het plafond en de muren vrij moeten blijven. De lamellen rollen op in een compacte aluminium kast bovenaan, zodat je maximaal ruimte wint, binnen én voor de garage.":
+      { fr: "Idéal lorsque le plafond et les murs doivent rester libres. Les lames s'enroulent dans un coffre en aluminium compact en haut, pour un gain de place maximal, dans et devant le garage.",
+        de: "Ideal, wenn Decke und Wände frei bleiben müssen. Die Lamellen rollen sich oben in einem kompakten Aluminiumkasten auf, für maximalen Platzgewinn, in und vor der Garage." },
+    "Het slimme alternatief: de poort schuift zijwaarts open in plaats van omhoog. Zo blijft het plafond volledig vrij, en kun je ze deels openen als doorgang, ideaal bij lage plafonds.":
+      { fr: "L'alternative astucieuse : la porte s'ouvre latéralement au lieu de monter. Le plafond reste entièrement libre et vous pouvez l'ouvrir partiellement comme passage, idéal pour les plafonds bas.",
+        de: "Die clevere Alternative: Das Tor öffnet seitlich statt nach oben. Die Decke bleibt komplett frei und es lässt sich teilweise als Durchgang öffnen, ideal bei niedrigen Decken." },
+
+    /* Detailpagina's — kernspecs */
+    "Gemotoriseerd": { fr: "Motorisé", de: "Motorisiert" },
+    "40 mm isolatie": { fr: "Isolation 40 mm", de: "40 mm Isolierung" },
+    "Sandwichpanelen met PU-schuim": { fr: "Panneaux sandwich avec mousse PU", de: "Sandwichpaneele mit PU-Schaum" },
+    "Geïsoleerde sandwichpanelen": { fr: "Panneaux sandwich isolés", de: "Isolierte Sandwichpaneele" },
+    "Panelen met PU-schuim": { fr: "Panneaux avec mousse PU", de: "Paneele mit PU-Schaum" },
+    "Tot 5,5 m breed": { fr: "Jusqu'à 5,5 m de large", de: "Bis 5,5 m breit" },
+    "Tot 3,5 m breed": { fr: "Jusqu'à 3,5 m de large", de: "Bis 3,5 m breit" },
+    "Tot 6 m breed": { fr: "Jusqu'à 6 m de large", de: "Bis 6 m breit" },
+    "± 400 kleuren": { fr: "± 400 couleurs", de: "± 400 Farben" },
+    "RAL + designs naar keuze": { fr: "RAL + designs au choix", de: "RAL + Designs nach Wahl" },
+    "Geruisloze werking": { fr: "Fonctionnement silencieux", de: "Geräuschloser Betrieb" },
+    "Vlotte, geruisloze kanteling": { fr: "Basculement fluide et silencieux", de: "Sanftes, geräuschloses Schwingen" },
+    "Eenvoudig & geruisloos": { fr: "Simple et silencieux", de: "Einfach & geräuschlos" },
+    "Eenvoudige bediening": { fr: "Commande simple", de: "Einfache Bedienung" },
+    "Inbraakwerend": { fr: "Anti-effraction", de: "Einbruchhemmend" },
+    "Obstakeldetectie + valstop": { fr: "Détection d'obstacle + arrêt de chute", de: "Hinderniserkennung + Fallstopp" },
+    "Veilig": { fr: "Sûr", de: "Sicher" },
+    "Vijfpuntsslot + beveiliging": { fr: "Serrure 5 points + sécurité", de: "Fünfpunktverriegelung + Sicherung" },
+    "Absolute veiligheid": { fr: "Sécurité absolue", de: "Absolute Sicherheit" },
+    "Loopdeur mogelijk": { fr: "Portillon possible", de: "Schlupftür möglich" },
+    "Lage drempel 2,5 cm": { fr: "Seuil bas 2,5 cm", de: "Niedrige Schwelle 2,5 cm" },
+    "80 cm breed, drempel 5,7 cm": { fr: "80 cm de large, seuil 5,7 cm", de: "80 cm breit, Schwelle 5,7 cm" },
+    "Drempel 1,5 cm, 525/700 mm": { fr: "Seuil 1,5 cm, 525/700 mm", de: "Schwelle 1,5 cm, 525/700 mm" },
+    "Maximale ruimte": { fr: "Espace maximal", de: "Maximaler Platz" },
+    "Lamellen rollen op in de kast": { fr: "Les lames s'enroulent dans le coffre", de: "Lamellen rollen in den Kasten" },
+    "Lamellen op maat": { fr: "Lames sur mesure", de: "Lamellen nach Maß" },
+    "55 of 77 mm (Carrol)": { fr: "55 ou 77 mm (Carrol)", de: "55 oder 77 mm (Carrol)" },
+    "RAL-kleuren": { fr: "Couleurs RAL", de: "RAL-Farben" },
+    "Naar keuze": { fr: "Au choix", de: "Nach Wahl" },
+    "Lichtinval": { fr: "Apport de lumière", de: "Lichteinfall" },
+    "Optionele raamlamellen": { fr: "Lames vitrées en option", de: "Optionale Fensterlamellen" },
+    "Vrij plafond": { fr: "Plafond libre", de: "Freie Decke" },
+    "Schuift zijwaarts, geen plafondrail": { fr: "Coulisse latéralement, sans rail au plafond", de: "Schiebt seitlich, ohne Deckenschiene" },
+    "Centrale opening": { fr: "Ouverture centrale", de: "Mittelöffnung" },
+    "Deels openen als doorgang": { fr: "Ouverture partielle comme passage", de: "Teilweise als Durchgang öffnen" },
+
+    /* Detailpagina's — accordeon-titels */
+    "Designs & kleuren": { fr: "Designs & couleurs", de: "Designs & Farben" },
+    "Isolatie & comfort": { fr: "Isolation & confort", de: "Isolierung & Komfort" },
+    "Veiligheid & vergrendeling": { fr: "Sécurité & verrouillage", de: "Sicherheit & Verriegelung" },
+    "Loopdeur (optie)": { fr: "Portillon (option)", de: "Schlupftür (Option)" },
+    "Afmetingen": { fr: "Dimensions", de: "Abmessungen" },
+    "Werking & comfort": { fr: "Fonctionnement & confort", de: "Funktion & Komfort" },
+    "Stevigheid & isolatie": { fr: "Robustesse & isolation", de: "Robustheit & Isolierung" },
+    "Waarom een rolpoort": { fr: "Pourquoi une porte enroulable", de: "Warum ein Rolltor" },
+    "Lamellen": { fr: "Lames", de: "Lamellen" },
+    "Veiligheid": { fr: "Sécurité", de: "Sicherheit" },
+
+    /* Detailpagina's — CTA */
+    "Stel jouw sectionaalpoort samen": { fr: "Composez votre porte sectionnelle", de: "Stellen Sie Ihr Sektionaltor zusammen" },
+    "Stel jouw kanteldeur samen": { fr: "Composez votre porte basculante", de: "Stellen Sie Ihr Schwingtor zusammen" },
+    "Stel jouw rolpoort samen": { fr: "Composez votre porte enroulable", de: "Stellen Sie Ihr Rolltor zusammen" },
+    "Stel jouw zijwaartse poort samen": { fr: "Composez votre porte latérale", de: "Stellen Sie Ihr Seitentor zusammen" },
+    "Kies type, design, kleur en maten, en bekijk meteen je richtprijs. Vrijblijvend en zonder verplichtingen.":
+      { fr: "Choisissez le type, le design, la couleur et les dimensions, et voyez aussitôt votre prix indicatif. Sans engagement ni obligation.",
+        de: "Wählen Sie Typ, Design, Farbe und Maße und sehen Sie sofort Ihren Richtpreis. Unverbindlich und ohne Verpflichtungen." }
   };
 
   /* ---- 2. Zinnen met inline opmaak: volledige innerHTML-override ------ */
@@ -347,6 +546,7 @@
   const VALID = ["nl", "fr", "de"];
   const origTitle = document.title;
   let textNodes = [], attrEls = [], htmlEls = [];
+  let cur = "nl";
 
   function pick() {
     // 1. Expliciete keuze via URL (?lang=fr) — handig om te delen/linken.
@@ -398,6 +598,7 @@
 
   function apply(lang) {
     if (VALID.indexOf(lang) === -1) lang = "nl";
+    cur = lang;
     document.documentElement.setAttribute("lang", lang);
 
     document.title = (lang === "nl")
@@ -439,6 +640,8 @@
     }
 
     try { localStorage.setItem(STORE, lang); } catch (e) {}
+    // dynamisch gerenderde onderdelen (bv. configurator) laten hervertalen
+    try { document.dispatchEvent(new CustomEvent("portisol:lang", { detail: lang })); } catch (e) {}
   }
 
   function buildSwitch() {
@@ -477,6 +680,12 @@
       document.body.appendChild(box);
     }
   }
+
+  // publieke mini-API zodat dynamisch gerenderde UI (configurator) strings kan vertalen
+  window.PortisolI18n = {
+    t: function (s) { if (cur === "nl") return s; const e = T[s]; return (e && e[cur]) ? e[cur] : s; },
+    lang: function () { return cur; }
+  };
 
   function init() {
     collect();
