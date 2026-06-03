@@ -68,11 +68,11 @@ tailwind.config = { corePlugins:{ preflight:false }, theme:{ extend:{ colors:{ z
           <div style="flex:1;min-width:240px">
             <h3 style="font-size:18px;margin-bottom:8px">Zo meet je zelf op</h3>
             <ol style="margin:0 0 10px 18px;font-size:14.5px;color:#5c574f">
-              <li>Meet de <b>breedte</b> en <b>hoogte</b> van de opening (in cm), op meerdere punten, en noteer de kleinste maat.</li>
-              <li>Geef aan of de poort op de <b>vloer</b> of op een <b>dorpel</b> komt.</li>
-              <li>Voeg een paar <b>foto's</b> toe, dan controleren wij je maten vóór productie.</li>
+              <li data-i18n="meet1">Meet de <b>breedte</b> en <b>hoogte</b> van de opening (in cm), op meerdere punten, en noteer de kleinste maat.</li>
+              <li data-i18n="meet2">Geef aan of de poort op de <b>vloer</b> of op een <b>dorpel</b> komt.</li>
+              <li data-i18n="meet3">Voeg een paar <b>foto's</b> toe, dan controleren wij je maten vóór productie.</li>
             </ol>
-            <p class="hint" style="background:var(--botergeel);border-radius:10px;padding:9px 13px;color:#7a5f12">Jij meet op, wij maken de poort op maat en <b>plaatsen ze vakkundig</b>. Twijfel je over een maat? Zet het gerust in "extra info".</p>
+            <p class="hint" data-i18n="hintplaats" style="background:var(--botergeel);border-radius:10px;padding:9px 13px;color:#7a5f12">Jij meet op, wij maken de poort op maat en <b>plaatsen ze vakkundig</b>. Twijfel je over een maat? Zet het gerust in "extra info".</p>
           </div>
         </div>
         <div class="notice" id="notice">✓ Bedankt! Je aanvraag is verstuurd. We bekijken alles en contacteren je binnen 2 werkdagen met je offerte op maat.</div>
@@ -136,7 +136,7 @@ tailwind.config = { corePlugins:{ preflight:false }, theme:{ extend:{ colors:{ z
             </div>
 
             <div class="field full">
-              <p class="hint" style="background:var(--botergeel);border-radius:10px;padding:10px 14px;color:#7a5f12">
+              <p class="hint" data-i18n="hintmotor" style="background:var(--botergeel);border-radius:10px;padding:10px 14px;color:#7a5f12">
                 ☀️ Onze poorten zijn <b>altijd gemotoriseerd</b> (afstandsbediening inbegrepen). Standaardkleuren wit en antraciet; andere RAL-kleuren mogelijk tegen meerprijs.
               </p>
             </div>
@@ -374,5 +374,6 @@ tailwind.config = { corePlugins:{ preflight:false }, theme:{ extend:{ colors:{ z
   });
   bereken();
 </script>
+<script defer src="assets/i18n.js"></script>
 </body>
 </html>
