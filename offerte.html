@@ -386,14 +386,47 @@
       b.style.cssText = "background:#FFFBEF;border:1px solid #f0e4c2;border-radius:14px;padding:14px 16px;margin-bottom:18px;font-size:14px;color:#5c574f;display:flex;gap:10px;align-items:flex-start";
       b.innerHTML = '<span class="material-symbols-outlined" style="color:#F4B740">tune</span><div><b style="color:#2B2A28">Jouw samenstelling uit de configurator:</b> ' +
         (c.tekst || '') + (c.prijs ? ' &middot; <b style="color:#2B2A28">richtprijs ' + c.prijs + '</b>' : '') +
-        '<br><span style="font-size:12.5px;color:#9A938A">Vul hieronder je gegevens aan, dan bezorgen we je een offerte op maat.</span></div>';
+        '<br><span style="font-size:12.5px;color:#9A938A">Je keuzes staan hieronder al ingevuld. Vul enkel je contactgegevens nog aan, dan bezorgen we je een offerte op maat.</span></div>';
       tabs.parentNode.insertBefore(b, tabs);
     }
+
+    // zet een <select> op de optie waarvan de tekst overeenkomt
+    function setSelectByText(id, txt) {
+      var sel = document.getElementById(id);
+      if (!sel || !txt) return;
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].text === txt) { sel.selectedIndex = i; break; }
+      }
+    }
+
     if (c.cat === 'poort') {
-      var br = document.getElementById('breedte'), ho = document.getElementById('hoogte'), ber = document.getElementById('bericht');
+      var TYPE = { sectionaal:'Sectionaalpoort', kantel:'Kanteldeur', rol:'Rolpoort', zij:'Zijwaartse poort' };
+      var LOOK = { vlak:'Vlak (glad)', cassette:'Cassette', gelijnd:'Gelijnd', hout:'Woodgrain (houtstructuur)' };
+      setSelectByText('type', TYPE[c.type]);
+      setSelectByText('uitzicht', LOOK[c.look]);
+
+      var br = document.getElementById('breedte'), ho = document.getElementById('hoogte'),
+          ral = document.getElementById('ral'), ber = document.getElementById('bericht');
       if (br && c.br) br.value = c.br;
       if (ho && c.ho) ho.value = c.ho;
-      if (ber) ber.value = 'Samenstelling uit de configurator: ' + (c.tekst || '') + (c.prijs ? ' (richtprijs ' + c.prijs + ')' : '');
+
+      if (c.kleur === '9016') setSelectByText('kleur', 'Wit (standaard)');
+      else if (c.kleur === '7016') setSelectByText('kleur', 'Antraciet (standaard)');
+      else { setSelectByText('kleur', 'Andere RAL-kleur (meerprijs)'); if (ral && c.kleurTxt) ral.value = c.kleurTxt; }
+
+      if (c.ramen) { var cb = document.querySelector('input[name="opt"][value="ramen"]'); if (cb) cb.checked = true; }
+
+      if (ber) ber.value = c.prijs ? ('Richtprijs uit configurator: ' + c.prijs) : '';
+    } else {
+      // Screens & rolluiken: dims (cm -> mm), product en kleur overnemen
+      var prodBtn = document.querySelector('#sc-product button[data-p="' + (c.cat === 'rolluik' ? 'rolluik' : 'screen') + '"]');
+      if (prodBtn) prodBtn.click();
+      var scb = document.getElementById('sc-breedte'), sch = document.getElementById('sc-hoogte'),
+          sck = document.getElementById('sc-kleur');
+      if (scb && c.br) scb.value = Math.round(c.br * 10);
+      if (sch && c.ho) sch.value = Math.round(c.ho * 10);
+      if (sck) sck.value = (c.kleur === '9016') ? 'wit' : (c.kleur === '7016') ? 'antraciet' : 'ander';
+      if (scb) scb.dispatchEvent(new Event('input'));
     }
   })();
 </script>

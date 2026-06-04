@@ -178,6 +178,7 @@
             <div class="cfg-excl" id="excl">excl. btw € —</div>
             <div class="cfg-pl" style="margin-top:7px"><span>Oppervlakte</span><span id="m2">— m²</span></div>
             <button type="button" class="cfg-cta" id="cta">Vraag je offerte aan →</button>
+            <button type="button" class="cfg-cta" id="gevelBtn" style="background:#fff;color:var(--cant);border:1.5px solid #e7ddc6;box-shadow:none;margin-top:8px">Zie op je gevel</button>
             <div class="cfg-note" id="prNote"></div>
           </div>
         </div>
@@ -527,7 +528,16 @@
   $('optRamen').onchange=e=>{ S.ramen=e.target.checked; render(); };
   $('br').oninput=e=>{ S.br=+e.target.value; $('brv').textContent=S.br+' cm'; render(); };
   $('ho').oninput=e=>{ S.ho=+e.target.value; $('hov').textContent=S.ho+' cm'; render(); };
-  $('cta').onclick=()=>{ try{ localStorage.setItem('pt-config', JSON.stringify({ tekst:S._tekst||'', prijs:$('incl').textContent, cat:S.cat, br:S.br, ho:S.ho })); }catch(e){} location.href='offerte.html'+(S.cat==='poort'?'':'#screens'); };
+  $('cta').onclick=()=>{ try{
+      const rk=RALMAP[S.kleur]||RAL[0];
+      const kleurTxt=rk.decor?rk.naam:('RAL '+rk.code+' · '+rk.naam);
+      localStorage.setItem('pt-config', JSON.stringify({
+        tekst:S._tekst||'', prijs:$('incl').textContent,
+        cat:S.cat, type:S.type, look:S.look, hor:S.hor,
+        kleur:S.kleur, kleurTxt:kleurTxt, ramen:!!S.ramen, br:S.br, ho:S.ho
+      }));
+    }catch(e){} location.href='offerte.html'+(S.cat==='poort'?'':'#screens'); };
+  $('gevelBtn').onclick=()=>{ try{ localStorage.setItem('pt-gevel', JSON.stringify({ cat:S.cat, type:S.type, look:S.look, kleur:(RALMAP[S.kleur]||{}).hex||'#2E3133' })); }catch(e){} location.href='gevel-proef.html'; };
   // poort openen/sluiten met vloeiende animatie
   let anim=null;
   $('openBtn').onclick=()=>{ const target=S.open<.5?1:0,start=S.open,t0=performance.now(),d=750;
