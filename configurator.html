@@ -128,6 +128,7 @@
               <button type="button" class="cfg-opt" data-v="cassette">Cassette</button>
               <button type="button" class="cfg-opt" data-v="gelijnd">Gelijnd</button>
               <button type="button" class="cfg-opt" data-v="hout">Woodgrain</button>
+              <button type="button" class="cfg-opt" data-v="sandgrain">Sandgrain</button>
             </div>
           </div>
 
@@ -146,7 +147,7 @@
             <div class="cfg-lab" id="kleurLab">Kleur</div>
             <div class="cfg-swatch" id="optKleur" style="flex-wrap:wrap"></div>
             <div id="kleurNaam" style="font-size:13px;font-weight:600;color:#9A938A;margin-top:8px"></div>
-            <div style="font-size:11.5px;color:#9A938A;margin-top:3px">Standaard: wit, antracietgrijs en gouden eik. Vele andere RAL-kleuren mogelijk op aanvraag.</div>
+            <div id="kleurNote" style="font-size:11.5px;color:#9A938A;margin-top:3px"></div>
           </div>
 
           <div class="cfg-field" data-for="poort">
@@ -241,7 +242,7 @@
               note:'Richtprijs · zelf plaatsen · incl. 21% btw.'}
   };
   const NL = { sectionaal:'Sectionaalpoort', kantel:'Kanteldeur', rol:'Rolpoort', zij:'Zijwaartse poort',
-               vlak:'Vlak', cassette:'Cassette', gelijnd:'Gelijnd', hout:'Woodgrain',
+               vlak:'Vlak', cassette:'Cassette', gelijnd:'Gelijnd', hout:'Woodgrain', sandgrain:'Sandgrain',
                vast:'Vaste hor', plisse:'Plissé hor', oprol:'Oprolbare hor', draai:'Hordeur (draai)', schuif:'Hordeur (schuif)' };
   const BASIS = { sectionaal:1500, kantel:1150, rol:1750, zij:1650 };
   const HORM2 = { vast:70, plisse:130, oprol:150, draai:200, schuif:230 };
@@ -249,27 +250,72 @@
   const POORTDIM = { sectionaal:[550,300], kantel:[350,225], rol:[400,400], zij:[600,300] };
 
   const S = { cat:'poort', type:'sectionaal', look:'vlak', hor:'vast', kleur:'9016', ramen:false, br:280, ho:215, open:0, muur:'pleister' };
-  /* Kleuren uit de Soprofen-catalogus: standaardtinten + voorkeur-RAL (std = geen meerprijs) */
-  const RAL = [
-    {code:'9016', naam:'Wit', hex:'#F1F0EA', std:true},
-    {code:'7016', naam:'Antracietgrijs', hex:'#383E42', std:true},
-    {code:'eik', naam:'Gouden eik', hex:'#8A5A2B', std:true, decor:true},
-    {code:'1015', naam:'Licht ivoor', hex:'#E6D2B5'},
-    {code:'3004', naam:'Purperrood', hex:'#6B1F23'},
-    {code:'7021', naam:'Zwartgrijs', hex:'#2E3234'},
-    {code:'7035', naam:'Lichtgrijs', hex:'#C8CAC6'},
-    {code:'7039', naam:'Kwartsgrijs', hex:'#6B665E'},
-    {code:'8014', naam:'Sepiabruin', hex:'#4A3526'},
-    {code:'8019', naam:'Grijsbruin', hex:'#3D3635'},
-    {code:'9002', naam:'Grijswit', hex:'#E7EBDA'},
-    {code:'9005', naam:'Gitzwart', hex:'#0E0E10'},
-    {code:'9006', naam:'Witaluminium', hex:'#A5A8A6'},
-    {code:'9007', naam:'Grijs aluminium', hex:'#8F8F8C'}
-  ];
-  const RALMAP = Object.fromEntries(RAL.map(r=>[r.code,r]));
+  /* Kleurpaletten per categorie, namen uit de Soprofen-catalogi (poort / screendoek / rolluiklamel / horkader).
+     std = standaardtint (geen meerprijs). ral = RAL-nr voor weergave. Hex = realistische
+     schermbenadering t.b.v. visualisatie, geen exacte RAL-meting. */
+  const PALET = {
+    poort: [
+      {code:'9016', naam:'Wit', hex:'#F1F0EA', std:true, ral:'9016'},
+      {code:'7016', naam:'Antracietgrijs', hex:'#383E42', std:true, ral:'7016'},
+      {code:'eik', naam:'Gouden eik', hex:'#8A5A2B', std:true},
+      {code:'1015', naam:'Licht ivoor', hex:'#E6D2B5', ral:'1015'},
+      {code:'3004', naam:'Purperrood', hex:'#6B1F23', ral:'3004'},
+      {code:'7021', naam:'Zwartgrijs', hex:'#2E3234', ral:'7021'},
+      {code:'7035', naam:'Lichtgrijs', hex:'#C8CAC6', ral:'7035'},
+      {code:'7039', naam:'Kwartsgrijs', hex:'#6B665E', ral:'7039'},
+      {code:'8014', naam:'Sepiabruin', hex:'#4A3526', ral:'8014'},
+      {code:'8019', naam:'Grijsbruin', hex:'#3D3635', ral:'8019'},
+      {code:'9002', naam:'Grijswit', hex:'#E7EBDA', ral:'9002'},
+      {code:'9005', naam:'Gitzwart', hex:'#0E0E10', ral:'9005'},
+      {code:'9006', naam:'Witaluminium', hex:'#A5A8A6', ral:'9006'},
+      {code:'9007', naam:'Grijs aluminium', hex:'#8F8F8C', ral:'9007'},
+      {code:'db703', naam:'Metaal DB 703', hex:'#37393B'},
+      {code:'db702', naam:'Metaal DB 702', hex:'#4C4F4E'},
+      {code:'db701', naam:'Metaal DB 701', hex:'#8C8F8E'}
+    ],
+    screen: [
+      {code:'zuiverwit', naam:'Zuiverwit', hex:'#F4F4EF', std:true},
+      {code:'cremewit', naam:'Crèmewit', hex:'#ECE5D2', std:true},
+      {code:'ivoor', naam:'Ivoorkleurig', hex:'#E3D5B6', std:true},
+      {code:'verkeerswit', naam:'Verkeerswit', hex:'#ECECE7', std:true},
+      {code:'lichtgrijs', naam:'Lichtgrijs', hex:'#BFC1BE', std:true},
+      {code:'aluminium', naam:'Aluminiumkleurig', hex:'#9CA0A0', std:true},
+      {code:'grijs', naam:'Grijs', hex:'#8B8D8B', std:true},
+      {code:'kwartsgrijs', naam:'Kwartsgrijs', hex:'#6E6A62', std:true},
+      {code:'grijsbruin', naam:'Grijsbruin', hex:'#4E463C', std:true},
+      {code:'ombergrijs', naam:'Ombergrijs', hex:'#3C3A36', std:true},
+      {code:'antraciet', naam:'Antracietgrijs', hex:'#383E42', std:true},
+      {code:'zwartgrijs', naam:'Zwartgrijs', hex:'#2E3133', std:true},
+      {code:'gitzwart', naam:'Gitzwart', hex:'#16171B', std:true},
+      {code:'grijs-sand', naam:'Grijs sandgrain', hex:'#7E807C', std:true},
+      {code:'zwart-sand', naam:'Zwart sandgrain', hex:'#26282A', std:true}
+    ],
+    rolluik: [
+      {code:'9016', naam:'Wit', hex:'#F1F0EA', std:true, ral:'9016'},
+      {code:'creme', naam:'Crème', hex:'#EDE3CC', std:true},
+      {code:'9006', naam:'Wit aluminium', hex:'#A5A8A6', std:true, ral:'9006'},
+      {code:'9007', naam:'Grijs aluminium', hex:'#8F8F8C', std:true, ral:'9007'},
+      {code:'7016', naam:'Antracietgrijs', hex:'#383E42', std:true, ral:'7016'},
+      {code:'beige', naam:'Beige', hex:'#D9C7A3'},
+      {code:'grijs', naam:'Grijs', hex:'#9A9C99'},
+      {code:'bruin', naam:'Bruin', hex:'#4A3B2C'},
+      {code:'9005', naam:'Zwart', hex:'#15161A', ral:'9005'},
+      {code:'eik', naam:'Gouden eik', hex:'#8A5A2B'}
+    ],
+    hor: [
+      {code:'9016', naam:'Wit', hex:'#F1F0EA', std:true, ral:'9016'},
+      {code:'7016', naam:'Antracietgrijs', hex:'#383E42', std:true, ral:'7016'},
+      {code:'9007', naam:'Grijs aluminium', hex:'#8F8F8C', std:true, ral:'9007'},
+      {code:'9005', naam:'Zwart', hex:'#15161A', ral:'9005'},
+      {code:'eik', naam:'Gouden eik', hex:'#8A5A2B'}
+    ]
+  };
   const $ = id => document.getElementById(id);
+  function palet(){ return PALET[S.cat]||PALET.poort; }
+  function ralInfo(code){ const p=palet(); return p.find(r=>r.code===code)||p[0]; }
+  function colorLabel(rk){ return rk.ral?('RAL '+rk.ral+' · '+rk.naam):rk.naam; }
 
-  function fill(){ return (RALMAP[S.kleur]||RAL[0]).hex; }
+  function fill(){ return ralInfo(S.kleur).hex; }
   function shade(hex,p){ const n=parseInt(hex.slice(1),16);let r=n>>16,g=(n>>8)&255,b=n&255;
     const f=p<0?(1+p):1,a=p>0?p:0; r=Math.round(r*f+(255-r)*a);g=Math.round(g*f+(255-g)*a);b=Math.round(b*f+(255-b)*a);
     return '#'+(1<<24|r<<16|g<<8|b).toString(16).slice(1); }
@@ -343,6 +389,7 @@
       t+=`<path d="M${x+px} ${y+py+ih} H${x+px+iw} V${y+py}" fill="none" stroke="${edge}" stroke-width="2" opacity=".65"/>`;
     } else if(S.look==='gelijnd'){ for(let gx=x+12;gx<x+w-8;gx+=16) t+=`<line x1="${gx}" y1="${y+3}" x2="${gx}" y2="${y+h-3}" stroke="${edge}" stroke-width="1.1" opacity=".4"/><line x1="${gx+1.4}" y1="${y+3}" x2="${gx+1.4}" y2="${y+h-3}" stroke="${hi}" stroke-width="1" opacity=".4"/>`;
     } else if(S.look==='hout'){ for(let gy=y+5;gy<y+h-3;gy+=5){ const wob=Math.sin((gy+x)*.05)*2.2; t+=`<path d="M${x+3} ${gy} q ${(w-6)/2} ${wob} ${w-6} 0" fill="none" stroke="${gr}" stroke-width="1" opacity=".3"/>`; } }
+    else if(S.look==='sandgrain'){ t+=`<rect x="${x}" y="${y}" width="${w}" height="${h}" filter="url(#fGrain)" opacity=".24"/>`; }
     return t; }
 
   function drawPoort(){ const c=fill(),t=tone(c);
@@ -356,6 +403,7 @@
       <linearGradient id="gGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0eef4"/><stop offset=".5" stop-color="#c2d8e2"/><stop offset="1" stop-color="#a8c1cf"/></linearGradient>
       <linearGradient id="gInt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16140f"/><stop offset="1" stop-color="#2d2a24"/></linearGradient>
       <filter id="fSoft" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur stdDeviation="7"/></filter>
+      <filter id="fGrain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .85 0"/></filter>
     </defs>`;
     // slagschaduw van de poort (licht linksboven -> schaduw naar rechtsonder)
     s+=`<rect x="${left+11}" y="${top+15}" width="${dw}" height="${dh}" rx="${r}" fill="#2b2a28" opacity=".17" filter="url(#fSoft)"/>`;
@@ -462,8 +510,8 @@
   /* ---------- prijs ---------- */
   const tr = s => (window.PortisolI18n ? window.PortisolI18n.t(s) : s);
   function prijs(){ const m2=(S.br/100)*(S.ho/100); let p;
-    const meerRAL=!(RALMAP[S.kleur]||{}).std;
-    if(S.cat==='poort'){ p=BASIS[S.type]+Math.max(0,m2-5)*150; if(S.look==='cassette')p+=140; if(S.look==='hout')p+=110; if(S.ramen)p+=190; if(meerRAL)p+=250; }
+    const meerRAL=!ralInfo(S.kleur).std;
+    if(S.cat==='poort'){ p=BASIS[S.type]+Math.max(0,m2-5)*150; if(S.look==='cassette')p+=140; if(S.look==='hout')p+=110; if(S.look==='sandgrain')p+=120; if(S.ramen)p+=190; if(meerRAL)p+=250; }
     else if(S.cat==='screen'){ p=Math.max(149,m2*130); if(meerRAL)p*=1.12; }
     else if(S.cat==='rolluik'){ p=Math.max(169,m2*165); if(meerRAL)p*=1.12; }
     else { p=Math.max(89,m2*HORM2[S.hor]); if(meerRAL)p*=1.10; }
@@ -478,8 +526,13 @@
     $('cfgArt').innerHTML = S.cat==='poort'?drawPoort():S.cat==='screen'?drawScreen():S.cat==='rolluik'?drawRolluik():drawHor();
     // velden tonen per categorie
     document.querySelectorAll('.cfg-field[data-for]').forEach(f=>{ f.hidden = f.getAttribute('data-for')!==S.cat; });
-    $('kleurLab').textContent = tr(S.cat==='poort'?'Kleur':'Kleur (kader)');
-    const rk=RALMAP[S.kleur]||RAL[0]; $('kleurNaam').textContent = (rk.decor?rk.naam:'RAL '+rk.code+' · '+rk.naam)+(rk.std?' · standaard':'');
+    $('kleurLab').textContent = tr(S.cat==='hor'?'Kleur (kader)':S.cat==='screen'?'Kleur (doek)':'Kleur');
+    const rk=ralInfo(S.kleur); $('kleurNaam').textContent = colorLabel(rk)+(rk.std?' · standaard':' · meerprijs');
+    const NOTE={poort:'Standaard: wit, antracietgrijs en gouden eik. Voorkeur-RAL + metaaltinten (DB) mogelijk; 300+ RAL op aanvraag.',
+      screen:'15 standaard doekkleuren incl. sandgrain-structuur. Meer dan 400 doeken op aanvraag.',
+      rolluik:'Standaard wit, alu en antraciet. Ruim lamel-kleurengamma; 180+ RAL op aanvraag.',
+      hor:'Kaderkleur naar keuze. Andere RAL-kleuren op aanvraag.'};
+    $('kleurNote').textContent = tr(NOTE[S.cat]||NOTE.poort);
     // badges
     let bd=[];
     if(S.cat==='poort'){ bd=[tr(NL[S.type]),tr(NL[S.look]),`<b>${S.br} × ${S.ho} cm</b>`,tr('⚙️ Gemotoriseerd'),tr(S.ramen?'Met ramen':'Zonder ramen')]; }
@@ -499,7 +552,7 @@
   function samenvatting(){ let txt=tr(CAT[S.cat].label);
     if(S.cat==='poort') txt+=` · ${tr(NL[S.type])} · ${tr(NL[S.look])}`;
     if(S.cat==='hor') txt+=` · ${tr(NL[S.hor])}`;
-    const rk=RALMAP[S.kleur]||RAL[0]; const kl = rk.decor?rk.naam.toLowerCase():'RAL '+rk.code+' '+rk.naam;
+    const rk=ralInfo(S.kleur); const kl = rk.ral?('RAL '+rk.ral+' '+rk.naam):rk.naam.toLowerCase();
     txt+=` · ${kl} · ${S.br}×${S.ho} cm`;
     if(S.cat==='poort'&&S.ramen) txt+=' · '+tr('met ramen');
     S._tekst=txt; }
@@ -513,7 +566,9 @@
     $('br').min=c.br[0]; $('br').max=maxBr; $('ho').min=c.ho[0]; $('ho').max=maxHo;
     $('br').value=S.br; $('ho').value=S.ho; $('brv').textContent=S.br+' cm'; $('hov').textContent=S.ho+' cm'; }
   function setCat(cat){ S.cat=cat; S.open=0;
-    setDims(true);
+    S.kleur=(palet().find(r=>r.std)||palet()[0]).code;
+    if(cat!=='poort' && S.look==='sandgrain') S.look='vlak';
+    setDims(true); renderSwatches();
     document.querySelectorAll('#cats .cfg-cat').forEach(x=>x.classList.toggle('on',x.dataset.v===cat));
     render(); }
 
@@ -521,23 +576,29 @@
   document.querySelectorAll('#cats .cfg-cat').forEach(b=>b.onclick=()=>setCat(b.dataset.v));
   function pick(sel,key){ document.querySelectorAll(sel+' .cfg-opt').forEach(b=>b.onclick=()=>{
     document.querySelectorAll(sel+' .cfg-opt').forEach(x=>x.classList.remove('on')); b.classList.add('on'); S[key]=b.dataset.v; render(); }); }
-  pick('#optLook','look'); pick('#optHor','hor'); pick('#optMuur','muur');
+  pick('#optHor','hor'); pick('#optMuur','muur');
+  // Look: Sandgrain is volgens catalogus enkel in grijs antraciet -> kleur meeschakelen
+  document.querySelectorAll('#optLook .cfg-opt').forEach(b=>b.onclick=()=>{
+    document.querySelectorAll('#optLook .cfg-opt').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    S.look=b.dataset.v; if(S.look==='sandgrain'){ S.kleur='7016'; renderSwatches(); } render(); });
   document.querySelectorAll('#optType .cfg-opt').forEach(b=>b.onclick=()=>{ document.querySelectorAll('#optType .cfg-opt').forEach(x=>x.classList.remove('on')); b.classList.add('on'); S.type=b.dataset.v; setDims(false); render(); });
-  $('optKleur').innerHTML = RAL.map(r=>`<div class="cfg-sw${r.code===S.kleur?' on':''}" data-v="${r.code}" style="background:${r.hex}" title="${r.decor?r.naam:'RAL '+r.code+' · '+r.naam}"></div>`).join('');
-  document.querySelectorAll('#optKleur .cfg-sw').forEach(b=>b.onclick=()=>{ document.querySelectorAll('#optKleur .cfg-sw').forEach(x=>x.classList.remove('on')); b.classList.add('on'); S.kleur=b.dataset.v; render(); });
+  function renderSwatches(){
+    $('optKleur').innerHTML = palet().map(r=>`<div class="cfg-sw${r.code===S.kleur?' on':''}" data-v="${r.code}" style="background:${r.hex}" title="${colorLabel(r)}"></div>`).join('');
+    document.querySelectorAll('#optKleur .cfg-sw').forEach(b=>b.onclick=()=>{ document.querySelectorAll('#optKleur .cfg-sw').forEach(x=>x.classList.remove('on')); b.classList.add('on'); S.kleur=b.dataset.v; render(); });
+  }
+  renderSwatches();
   $('optRamen').onchange=e=>{ S.ramen=e.target.checked; render(); };
   $('br').oninput=e=>{ S.br=+e.target.value; $('brv').textContent=S.br+' cm'; render(); };
   $('ho').oninput=e=>{ S.ho=+e.target.value; $('hov').textContent=S.ho+' cm'; render(); };
   $('cta').onclick=()=>{ try{
-      const rk=RALMAP[S.kleur]||RAL[0];
-      const kleurTxt=rk.decor?rk.naam:('RAL '+rk.code+' · '+rk.naam);
+      const kleurTxt=colorLabel(ralInfo(S.kleur));
       localStorage.setItem('pt-config', JSON.stringify({
         tekst:S._tekst||'', prijs:$('incl').textContent,
         cat:S.cat, type:S.type, look:S.look, hor:S.hor,
         kleur:S.kleur, kleurTxt:kleurTxt, ramen:!!S.ramen, br:S.br, ho:S.ho
       }));
     }catch(e){} location.href='offerte.html'+(S.cat==='poort'?'':'#screens'); };
-  $('gevelBtn').onclick=()=>{ try{ localStorage.setItem('pt-gevel', JSON.stringify({ cat:S.cat, type:S.type, look:S.look, kleur:(RALMAP[S.kleur]||{}).hex||'#2E3133' })); }catch(e){} location.href='gevel-proef.html'; };
+  $('gevelBtn').onclick=()=>{ try{ localStorage.setItem('pt-gevel', JSON.stringify({ cat:S.cat, type:S.type, look:S.look, kleur:ralInfo(S.kleur).hex })); }catch(e){} location.href='gevel-proef.html'; };
   // poort openen/sluiten met vloeiende animatie
   let anim=null;
   $('openBtn').onclick=()=>{ const target=S.open<.5?1:0,start=S.open,t0=performance.now(),d=750;
